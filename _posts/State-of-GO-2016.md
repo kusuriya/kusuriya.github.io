@@ -1,7 +1,7 @@
 ---
 layout: default
 title: State of Go 2016
-Date: 2015-10-26 21:44:00 +/-0000
+Date: 2016-02-03 21:44:00 +/-0000
 published: yes
 
 tags: 
