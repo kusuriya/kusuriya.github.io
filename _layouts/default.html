@@ -28,15 +28,17 @@
        </div>
        <div id="search">
        	<script type="text/javascript">
-	 function SearchMySite ()
-	 {
-    	  url = 'https://www.duckduckgo.com/?q='+document.Search.SearchQuery.value+'+site:blog.corrupted.io';
-    	  window.location.href = url;
-	 }
-	</script>
-	<form name="Search" method="GET" onsubmit="event.preventDefault();return SearchMySite();">
-    	 <input type="search" name="SearchQuery" placeholder="DDG search this blog" width= 200>
-	</form>
+         <script type="text/javascript">
+          function SearchMySite ()
+          {
+           SearchEngine = 'https://www.duckduckgo.com/?q='
+           Site = 'blog.corrupted.io'
+           url = SearchEngine+document.getElementById('SearchQuery').value+'+site:'+Site;
+           window.location.href = url;
+          }
+        </script>
+        <input type="search" id="SearchQuery" placeholder="DDG search this blog" width=200 onkeydown="if(event.which == 13){SearchMySite();}">
+        <input type="button" onclick="SearchMySite();" value="Search">
        </div>
       </header>
       <section id="main">
