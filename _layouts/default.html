@@ -31,35 +31,32 @@
         {{ content }}
       </section>
       <footer>
-      	       <div id="search">
-       	<script type="text/javascript">
-         <script type="text/javascript">
-          function SearchMySite ()
-          {
-           SearchEngine = 'https://www.duckduckgo.com/?q='
-           Site = 'blog.corrupted.io'
-           url = SearchEngine+document.getElementById('SearchQuery').value+'+site:'+Site;
-           window.location.href = url;
-          }
-        </script>
-        <div>
-         <input type="search" id="Text" placeholder="DDG search this blog" onkeydown="if(event.which == 13){SearchMySite();}" style="
-          border:1px solid;
-          padding: 1px;
-          height: 25px;
-          width: 150px;
-          margin-top: 2px;
-        ">
-        <a onclick="SearchMySite();" href="#" style="border:0"><img src="/img/search.png" style="border:0;
-         height:25px;
-         align: bottom; 
-         vertical-align: bottom;
-         padding: 0px;
-         margin-left: -5px;
-        ">
-       </a>
-      </div>
-       </div>
+        <div id="search">
+            <script type="text/javascript">
+                function SearchMySite ()
+                {
+                    SearchEngine = 'https://www.duckduckgo.com/?q='
+                    Site = 'blog.corrupted.io'
+                    url = SearchEngine+document.getElementById('SearchQuery').value+'+site:'+Site;
+                    window.location.href = url;
+                }
+            </script>
+            <input type="search" id="Text" placeholder="DDG search this blog" onkeydown="if(event.which == 13){SearchMySite();}" style="
+                border:1px solid;
+                padding: 1px;
+                height: 25px;
+                width: 150px;
+                margin-top: 2px;
+            ">
+            <a onclick="SearchMySite();" href="#" style="border:0"><img src="/img/search.png" style="border:0;
+                height:25px;
+                align: bottom; 
+                vertical-align: bottom;
+                padding: 0px;
+                margin-left: -5px;
+            ">
+            </a>
+        </div>
 	<a href="{{ site.url }}/feed.xml">Stalk this page with RSS</a><br>
 	<small>
 	 <b>I'm also on: </b>
