@@ -11,24 +11,24 @@
     <div class="wrapper">
       <header>
         <h1><a href="/">Corrupted IO</a></h1>
-        <div class="pagination">
-	 {% if paginator.total_pages > 1 %}
-          {% if paginator.next_page %}
-          <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span><br/>
-          {% if paginator.previous_page %}
-           <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
-          {% else %}
-           <span class="previous">Previous</span>
-          {% endif %}
-           <a href="{{ paginator.next_page_path }}" class="next">Next</a>
-          {% else %}
-           <span class="next ">Next</span>
-         {% endif %}
-        {% endif %}
-       </div>
       </header>
       <section id="main">
         {{ content }}
+        <div class="pagination">
+            {% if paginator.total_pages > 1 %}
+                {% if paginator.next_page %}
+                <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span><br/>
+                {% if paginator.previous_page %}
+                <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+                {% else %}
+                <span class="previous">Previous</span>
+                {% endif %}
+                <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+                {% else %}
+                <span class="next ">Next</span>
+                {% endif %}
+            {% endif %}
+        </div>
       </section>
       <footer>
         <div id="search">
