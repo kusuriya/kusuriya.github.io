@@ -26,7 +26,12 @@
          {% endif %}
         {% endif %}
        </div>
-       <div id="search">
+      </header>
+      <section id="main">
+        {{ content }}
+      </section>
+      <footer>
+      	       <div id="search">
        	<script type="text/javascript">
          <script type="text/javascript">
           function SearchMySite ()
@@ -37,14 +42,27 @@
            window.location.href = url;
           }
         </script>
-        <input type="search" id="SearchQuery" placeholder="DDG search this blog" width=200 onkeydown="if(event.which == 13){SearchMySite();}">
-        <Button onclick="SearchMySite();">Search</Button>
+        <div>
+         <input type="search" id="Text" placeholder="DDG search this blog" onkeydown="if(event.which == 13){SearchMySite();}" style="
+          border:0px;
+          padding-bottom: 0px;
+          padding-top: 0px;
+          padding-right: 0px;
+          padding-left: 0px;
+          height: 23px;
+          width: 150px;
+          margin-top: 2px;
+        ">
+        <a onclick="SearchMySite();" href="#" style="border:0"><img src="search.png" style="border:0;
+         height:23px;
+         align: bottom; 
+         vertical-align: middle;
+         padding: 0px;
+         margin-left: -5px;
+        ">
+       </a>
+      </div>
        </div>
-      </header>
-      <section id="main">
-        {{ content }}
-      </section>
-      <footer>
 	<a href="{{ site.url }}/feed.xml">Stalk this page with RSS</a><br>
 	<small>
 	 <b>I'm also on: </b>
