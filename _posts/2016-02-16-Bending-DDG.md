@@ -26,7 +26,7 @@ DDG to append `site:blog.corrupted.io` to the query.
 
 I know what all the javascript folks out there are screaming and mentioning how easy that is with javascript, and they are
 right. For the time being a pure HTML solution evades me so I had to hack some stuff together with javascript. so lets look at the code
-```
+~~~ html
 <div id="search">
     <script type="text/javascript">
         function SearchMySite ()
@@ -40,7 +40,7 @@ right. For the time being a pure HTML solution evades me so I had to hack some s
     <input type="search" id="SearchQuery" placeholder="DDG search this blog" onkeydown="if(event.which == 13){SearchMySite();}" style="border:1px solid;padding: 1px;height: 25px;width: 150px;margin-top: 2px;">
     <a onclick="SearchMySite();" href="#" style="border:0"><img src="/img/search.png" alt="Search" style="border:0;height:25px;align: bottom;vertical-align: bottom;padding: 0px;margin-left: -5px;"></a>
 </div>
-```
+~~~
 As we can see really nothing flashy showy or elegant here, just some brute force javascript that hacks together a URL with query and tells the browser to go there.
 as you can see simple and gets the job done, if I threw a few of the parameter's from DDGs site in there I could also make DDG look like my blog, but that was more 
 than I really felt like doing.
