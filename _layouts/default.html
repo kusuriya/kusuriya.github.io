@@ -14,7 +14,7 @@
       </header>
       <section id="main">
         {{ content }}
-        <div class="pagination" class="pager">
+        <div class="pagination">
             {% if paginator.total_pages > 1 %}
                 {% if paginator.next_page %}
                 <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span><br/>
