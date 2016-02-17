@@ -10,13 +10,16 @@
   <body>
     <div class="wrapper">
       <header>
-        <a href="/"><img alt="Corrupted IO" src="/img/title.png"></a>
+        <a href="/"><img alt="Corrupted IO Title" src="/img/title.png"></a>
       </header>
       <section id="main">
         {{ content }}
+        <br/>
         <div class="pagination">
             {% if paginator.total_pages > 1 %}
-                <span class="page_number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span><br/>
+                <hr class="pagination">
+                <span class="page_number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+                <br/>
                 {% if paginator.previous_page %}
                     <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
                 {% else %}

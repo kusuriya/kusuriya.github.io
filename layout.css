@@ -261,6 +261,9 @@ div.pagination {
    margin-right: auto; 
    width: 50%; 
 }
+hr.pagination {
+    width: 25%;
+}
 
 input.search {
    border:1px solid;
