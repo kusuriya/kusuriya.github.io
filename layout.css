@@ -258,7 +258,8 @@ footer {
 
 div.pagination {
    margin-left: auto;
-   margin-right: auto; 
+   margin-right: auto;
+   text-align: center; 
    width: 25%; 
 }
 hr.pagination {
