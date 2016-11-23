@@ -88,26 +88,26 @@ img {
   max-width:100%;
 }
 
-.header {
+#header {
   width:100%;
   height: 50px;
   position:fixed;
   margin: 0px auto;
 }
-#headerleft {
+.headerleft {
   float: left;
   width: 45%;
 }
-#headerright {
+.headerright {
   float:right;
   width: 45%;
 }
-section {
+#section {
     margin: 20px auto;
     width:100%;
   }
 
-footer {
+#footer {
   width: 100%;
   height: 50px;
   position:fixed;
