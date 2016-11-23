@@ -101,7 +101,7 @@ header {
 
 header ul {
   list-style:none;
-  height:40px;
+  height:25px;
   
   padding:0;
   
@@ -123,7 +123,7 @@ header li {
   width:89px;
   float:left;
   border-right:1px solid #d2d2d2;
-  height:40px;
+  height:25px;
 }
 
 header ul a {
@@ -141,7 +141,7 @@ strong {
   font-weight:700;
 }
 
-header ul li + li {
+/* header ul li + li {
   width:88px;
   border-left:1px solid #fff;
 }
@@ -150,7 +150,7 @@ header ul li + li + li {
   border-right:none;
   width:89px;
 }
-
+*/
 header ul a strong {
   font-size:14px;
   display:block;
