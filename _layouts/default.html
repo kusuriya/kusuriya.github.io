@@ -8,44 +8,45 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml">
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <a href="/"><img alt="Corrupted IO Title" src="/img/title.png"></a>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/blog">Blog</a></li>
-        </ul>
-      </header>
-      <section id="main">
-        {{ content }}
-        <br/>
-      </section>
-      <footer>
-        <div id="search" class="search">
-            <script type="text/javascript">
-                function SearchMySite ()
-                {
-                    SearchEngine = 'https://www.duckduckgo.com/?q='
-                    Site = 'corrupted.io'
-                    url = SearchEngine+document.getElementById('SearchQuery').value+'+site:'+Site;
-                    window.location.href = url;
-                }
-            </script>
-            <input class="search" type="search" id="SearchQuery" placeholder="DDG search this blog" onkeydown="if(event.which == 13){SearchMySite();}">
-            <a class="search" onclick="SearchMySite();" href="#"><img class="search" src="/img/search.png" alt="Search"></a>
+    <header>
+        <div class="headerleft">
+            <a href="/"><img alt="Corrupted IO Title" src="/img/title.png"></a>
         </div>
-        <div id="feeds">
-        <a href="{{ site.url }}/feed.xml"><img src="/img/rss.gif" alt="Stalk this page with RSS"></a>
+        <div class="headerright">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/blog">Blog</a></li>
+            </ul>
         </div>
-        <div id="InteractWithMe">
-        <a href="https://github.com/kusuriya" target="tab"><img alt="github" src="/img/github.png"></a>
-        <a href="https://twitter.com/slaughterhut" target="tab"><img alt="twitter" src="/img/twitter.png"></a>
-        <a href="https://alpha.app.net/kusuriya" target="tab"><img alt="app.net" src="/img/adn.png"></a>
-        <a href="https://www.linkedin.com/profile/view?id=47752648"><img alt="linkedin" src="/img/linkedin.png"></a>
-        </div>
-      </footer>
+    </header>
+    <section id="main">
+    {{ content }}
+    <br/>
+    </section>
+    <footer>
+    <div id="search" class="search">
+        <script type="text/javascript">
+            function SearchMySite ()
+            {
+                SearchEngine = 'https://www.duckduckgo.com/?q='
+                Site = 'corrupted.io'
+                url = SearchEngine+document.getElementById('SearchQuery').value+'+site:'+Site;
+                window.location.href = url;
+            }
+        </script>
+        <input class="search" type="search" id="SearchQuery" placeholder="DDG search this blog" onkeydown="if(event.which == 13){SearchMySite();}">
     </div>
+    <div id="feeds">
+    <a href="{{ site.url }}/feed.xml"><img src="/img/rss.gif" alt="Stalk this page with RSS"></a>
+    </div>
+    <div id="InteractWithMe">
+    <a href="https://github.com/kusuriya" target="tab"><img alt="github" src="/img/github.png"></a>
+    <a href="https://twitter.com/slaughterhut" target="tab"><img alt="twitter" src="/img/twitter.png"></a>
+    <a href="https://alpha.app.net/kusuriya" target="tab"><img alt="app.net" src="/img/adn.png"></a>
+    <a href="https://www.linkedin.com/profile/view?id=47752648"><img alt="linkedin" src="/img/linkedin.png"></a>
+    </div>
+    </footer>
   </body>
 </html>
 
