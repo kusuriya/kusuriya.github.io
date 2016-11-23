@@ -5,9 +5,26 @@ title: Corrupted.io the blog
 
 
 <div id="home">
-{% for post in paginator.posts %}
-<p><postheading><a href="{{ post.url }}">{{ post.title }}</a></postheading> <small><i>On:</i>{{ post.date | date_to_string }} <i>By:</i>{{post.author}}</small><br>
-{{ post.excerpt | strip_html }}
-</p>
-{% endfor %}
+    {% for post in paginator.posts %}
+        <p><postheading><a href="{{ post.url }}">{{ post.title }}</a></postheading> <small><i>On:</i>{{ post.date | date_to_string }} <i>By:</i>{{post.author}}</small><br>
+        {{ post.excerpt | strip_html }}
+        </p>
+    {% endfor %}
+        <div class="pagination">
+            {% if paginator.total_pages > 1 %}
+                <hr class="pagination">
+                <span class="page_number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+                <br/>
+                {% if paginator.previous_page %}
+                    <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+                {% else %}
+                    <span class="previous">Previous</span>
+                {% endif %}
+                {% if paginator.next_page %}
+                    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+                {% else %}
+                    <span class="next">Next</span>
+                {% endif %}
+            {% endif %}
+        </div>
 </div>
