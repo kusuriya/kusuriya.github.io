@@ -1,9 +1,9 @@
 #highlighter: pygments
 #pygments: true
 #markdown: redcarpet
-name: A Corrupted Tech Log
+name: Cyberdyne Systems
 description: A tech log
-url: https://blog.corrupted.io
+url: https://corrupted.io
 paginate: 10
 paginate_path: "blog/page:num"
 defaults:
