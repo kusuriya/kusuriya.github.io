@@ -27,7 +27,7 @@ DuckDuckGo to append `site:blog.corrupted.io` to the query.
 I know what all the JavaScript folks out there are screaming and mentioning how easy that is with JavaScript, and they are
 right. For the time being a pure HTML solution evades me so I had to hack some stuff together with JavaScript. so lets look at the code
 
-~~~
+```html
 <div id="search">
     <script type="text/javascript">
         function SearchMySite ()
@@ -43,8 +43,7 @@ right. For the time being a pure HTML solution evades me so I had to hack some s
     <a onclick="SearchMySite();" href="#" style="border:0"><img src="/img/search.png" alt="Search" 
     style="border:0;height:25px;align: bottom;vertical-align: bottom;padding: 0px;margin-left: -5px;"></a>
 </div>
-~~~
-{: .language-html}
+```
 
 As we can see really nothing flashy showy or elegant here, just some brute force JavaScript that hacks together a URL with query and tells the browser to go there.
 as you can see simple and gets the job done, if I threw a few of the parameter's from DuckDuckGo's site in there I could also make DuckDuckGo look like my blog, 
