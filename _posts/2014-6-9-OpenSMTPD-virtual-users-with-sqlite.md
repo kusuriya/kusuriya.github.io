@@ -3,6 +3,8 @@ layout: default
 title: OpenSMTPD virtual users using SQLite
 tags: [sqlite,OpenSMTPD,virtual users,how-to]
 ---
+# OpenSMTPD virtual users using SQLite
+
 So boys and girls I managed to get virtual users with username@domain.tld to work with OpenSMTPD, and let me explain it off to you all.  
 
 <!--more-->
@@ -18,9 +20,17 @@ So there are a few basic parts to getting this working, the first part that is b
 ## SQLite Database Schema
 
 ```sqlite3
-    CREATE TABLE users (username VARCHAR(128) NOT NULL, domain VARCHAR(128) NOT NULL, home VARCHAR(256) NOT NULL,password VARCHAR(64) NOT NULL, uid INTEGER NOT NULL, gid INTEGER, active CHAR(1) DEFAULT 'Y' NOT NULL);  
-    CREATE TABLE alias (user VARCHAR NOT NULL, alias VARCHAR NOT NULL);  
-    CREATE TABLE domains (domain VARCHAR(256) NOT NULL, active CHAR(1) DEFAULT 'Y' NOT NULL);  
+CREATE TABLE users (username VARCHAR(128) NOT NULL, 
+domain VARCHAR(128) NOT NULL, 
+home VARCHAR(256) NOT NULL,
+password VARCHAR(64) NOT NULL, 
+uid INTEGER NOT NULL, gid INTEGER, 
+active CHAR(1) DEFAULT 'Y' NOT NULL);
+
+CREATE TABLE alias (user VARCHAR NOT NULL, 
+alias VARCHAR NOT NULL);  
+CREATE TABLE domains (domain VARCHAR(256) NOT NULL, 
+active CHAR(1) DEFAULT 'Y' NOT NULL);  
 ```
   
 Each of the tables handle different things,  
@@ -33,13 +43,13 @@ So the other moving part is telling OpenSMTPD how to create the tables which is 
 
 
 ## SQLiteTables.conf
-
-    dbpath                  /etc/mail/authdb.sqlite;
-    query_alias             select alias from alias where user=?;
-    query_domain            select domain from domains where domain=? and active="Y";
-    query_userinfo          select uid,gid,home from users where username=? and active="Y";
-    query_credentials       select username, password, from users where (username||'@'||domain)=? and active="Y";
-
+```
+dbpath            /etc/mail/authdb.sqlite;
+query_alias       select alias from alias where user=?;
+query_domain      select domain from domains where domain=? and active="Y";
+query_userinfo    select uid,gid,home from users where username=? and active="Y";
+query_credentials select username, password, from users where (username||'@'||domain)=? and active="Y";
+```
 
 So lets take it line by line and explain it:  
   
@@ -60,7 +70,7 @@ This will be run when SMTPD does a lookup call for CREDENTIALS. This replaces ? 
   
 The last moving part is the SMTPD.conf  
   
-##SMTPD.CONF
+## SMTPD.CONF
   
 so near the top of the config define all your table declarations or at least the auth one, but I like to keep them together. The defs would look like:  
 

@@ -4,6 +4,7 @@
 name: Cyberdyne Systems
 description: A tech log
 url: https://corrupted.io
+gems: [jekyll-paginate]
 paginate: 10
 paginate_path: "blog/page:num"
 defaults:
