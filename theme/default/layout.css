@@ -37,11 +37,13 @@ div.footer {
   z-index: 20;
 }
 
-header.headerright ul {
+ul.nav {
   list-style-type:none;
   padding:0;
   margin: 0;
-  display: inline-block;
+}
+ul.nav li {
+  display: inline;
 }
 
 /* huhwah */
