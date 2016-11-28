@@ -20,8 +20,10 @@ div.headerright {
   width: 45%;
 }
 div.section {
-    margin: 20px auto;
+    margin: 80px auto;
     width:100%;
+    float: right;
+    position: relative;
   }
 
 div.footer {
