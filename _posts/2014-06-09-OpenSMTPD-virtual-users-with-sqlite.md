@@ -19,7 +19,7 @@ So there are a few basic parts to getting this working, the first part that is b
 
 ## SQLite Database Schema
 
-```sqlite3
+```sql
 CREATE TABLE users (username VARCHAR(128) NOT NULL, 
 domain VARCHAR(128) NOT NULL, 
 home VARCHAR(256) NOT NULL,
@@ -43,7 +43,7 @@ So the other moving part is telling OpenSMTPD how to create the tables which is 
 
 
 ## SQLiteTables.conf
-```
+```config
 dbpath            /etc/mail/authdb.sqlite;
 query_alias       select alias from alias where user=?;
 query_domain      select domain from domains where domain=? and active="Y";
