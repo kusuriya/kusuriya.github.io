@@ -32,6 +32,20 @@ div.footer {
   position:fixed;
   bottom:50px;
 }
+div.footer.feeds {
+  float: left;
+  width: 20%;
+}
+div.footer.interactwithme {
+  float: left;
+  width: 20%;
+  margin: auto 2.5%;
+}
+div.footer.search {
+  float: left;
+  width: 20%;
+  margin: auto 80%;
+}
 
 header ul {
   list-style-type:none;
