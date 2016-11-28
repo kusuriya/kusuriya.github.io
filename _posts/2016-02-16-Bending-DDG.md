@@ -7,7 +7,7 @@ tags:
     - Tools
 ---
 
-# Bending DuckDuckGo to serve your will.  
+# {{ page.title }}
 
 It turns out while thinking ahead I decided I will at some point need to give people a way to search my blog. 
 Not wanting to write or host an indexer myself I thought maybe I'll turn to my favorite search engine of all time, DuckDuckGo.

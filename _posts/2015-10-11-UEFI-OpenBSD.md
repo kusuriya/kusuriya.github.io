@@ -6,7 +6,7 @@ tags:
     - OpenBSD
     - UEFI
 ---
-# OpenBSD finally has UEFI support...  
+# {{ page.title }}  
 
 After tons of hardwork a group of dedicated hackers have finally put out a UEFI boot loader for OpenBSD. While the installer does not yet deal with EFI boot blocks they are easily installed manually.
 

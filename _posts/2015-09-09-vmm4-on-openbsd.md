@@ -4,7 +4,7 @@ title: vmm(4) on OpenBSD
 tags: 
     - OpenBSD
 ---
-# VMM(4) on OpenBSD  
+# {{ page.title }}  
 
 Thanks to work by mlarkin@ OpenBSD is that much closer to having a native hypervisor and honestly I think this is a
 game changer.

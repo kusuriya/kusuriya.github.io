@@ -1,11 +1,14 @@
 <!doctype html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1 IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>{{ page.title }}</title>
+    <meta name="author" content="Jason Barbier" />
+    <!-- Theme stylesheets -->
     <link rel="stylesheet" href="{{"/theme/default/layout.css" | relative_url}}">
+    <!-- Syntax highlighting -->
     <link rel="stylesheet" href="{{"/theme/default/syntaxhighlight.css" | relative_url}}">
+
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml">
   </head>
   <body>
@@ -15,8 +18,10 @@
         </div>
         <div class="headerright">
             <ul>
+                <li><a href="/">home</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/blog">Blog</a></li>
+                <!-- <li><a href="/resume">Resume</a></li> -->
             </ul>
         </div>
     </div>
