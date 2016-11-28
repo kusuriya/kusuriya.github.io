@@ -11,9 +11,9 @@ So boys and girls I managed to get virtual users with username@domain.tld to wor
 
 ## Prereqs:
   
-* This assumes you already have virtual users setup for your selected LDA/MDA/IMAP/etc server and it understands how to deal with a blowfish password since OpenSMTPD is really just acting as an MTA.  
-* SQLite3, I may do an LDAP and postgresql one down the line but for this I made an executive call and used SQLite since that backend was the most stable at the time I started this oddessy.  
-* A Working knowledge of computers.
+1. This assumes you already have virtual users setup for your selected LDA/MDA/IMAP/etc server and it understands how to deal with a blowfish password since OpenSMTPD is really just acting as an MTA.  
+2. SQLite3, I may do an LDAP and postgresql one down the line but for this I made an executive call and used SQLite since that backend was the most stable at the time I started this oddessy.  
+3. A Working knowledge of computers.
   
 So there are a few basic parts to getting this working, the first part that is beyond the scope of this is getting dovecot to accept your virtual users using SQLite and do user@domain.tld for auth. The second part of it is setting up the database, below is the schema I have for mine, It needs to be tuned a lot but this works.
 
