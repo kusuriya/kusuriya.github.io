@@ -1,7 +1,6 @@
 body {
   padding:50px;
   font:14px/1.5 Lato, Helvetica, Arial, sans-serif;
-  /*color:#777;*/
   font-weight:300;
 }
 
@@ -10,6 +9,7 @@ div.header {
   height: 50px;
   position:fixed;
   margin: 0px auto;
+  background-color: #ffffff;
 }
 div.headerleft {
   float: left;
@@ -31,27 +31,36 @@ div.footer {
   height: 50px;
   position:fixed;
   bottom:50px;
-}
-div.footer.feeds {
-  float: left;
-  width: 20%;
-}
-div.footer.interactwithme {
-  float: left;
-  width: 20%;
-  margin: auto 2.5%;
-}
-div.footer.search {
-  float: left;
-  width: 20%;
-  margin: auto 80%;
+  background-color: #ffffff;
 }
 
-header ul {
+header.headerright ul {
   list-style-type:none;
   padding:0;
   margin: 0;
   display: inline-block;
+}
+
+/* huhwah */
+blockquote {
+  border-left:1px solid #e5e5e5;
+  margin:0;
+  padding:0 0 0 20px;
+  font-style:italic;
+}
+
+code, pre {
+  font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
+  color:#333;
+  font-size:12px;
+}
+
+pre {
+  padding:8px 15px;
+  background: #f8f8f8;  
+  border-radius:5px;
+  border:1px solid #e5e5e5;
+  overflow-x: auto;
 }
 
 strong {
