@@ -4,9 +4,22 @@
 name: Cyberdyne Systems
 description: A tech log
 url: https://corrupted.io
+plugins_dir:  _plugins
+layouts_dir:  _layouts
+data_dir:     _data
+includes_dir: _includes
+
+# Filtering Content
+show_drafts: null
+limit_posts: 0
+future:      false
+unpublished: false
+
 gems: [jekyll-paginate]
+
 paginate: 10
 paginate_path: "blog/page:num"
+
 defaults:
 -
     scope:
