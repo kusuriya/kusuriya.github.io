@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PowerShell and the cryptic error message!
+title: PowerShell DSC and the cryptic error message!
 Date: 2017-01-25 01:30:00 +/-0000
 published: yes
 tags: 
@@ -9,7 +9,7 @@ tags:
     - DSC
 ---
 
-# PowerShell and the cryptic error message!
+# PowerShell DSC and the cryptic error message!
 
 DSC is a great idea that is still in the process of being completely baked out in windows.
 As such there are still a few quirks and issues, one of them being error messages.  
