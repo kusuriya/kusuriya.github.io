@@ -16,7 +16,7 @@ As such there are still a few quirks and issues, one of them being error message
 Today I ran into one of those ever great cryptic messages ``` Failed to get the action from server http://server/PSDSCPullServer.svc/Action(ConfigurationId='foo')/GetAction ```,
 so lets talk about it.
 
-<!-- more -->
+<!--more-->
 
 After a bit of investigation this was caused because my server, while it could resolve the address for the DSC pull server, it could not actually reach it over the network.  
 This could have been probably better worded as "Operation "getting action from server http://server/PSDSCPullServer.svc/Action(ConfigurationId='foo')/GetAction" timed out",
