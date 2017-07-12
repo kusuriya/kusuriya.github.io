@@ -17,13 +17,11 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
-	<script type="text/javascript">
-		$(window).on('load',function(){
-			$('#myModal').modal('show');
-		});
-	</script>
-	<div class="modal hide fade" id="myModal">
+	<script type="text/javascript">$(window).on('load',function(){$('#fcc').modal('show');});</script>
+	<div class="modal fade" id="fcc" role="dialog">
+     <div class="modal-dialog">
 	  <div class="modal-header">
+		<a class="close" data-dismiss="modal">×</a>
 		<h3>Sorry, you have exceeded your alloted bandwidth</h3>
 	  </div>
 	  <div class="modal-body">
@@ -34,6 +32,7 @@
 	  </div>
 	  <div class="modal-footer">
 	  </div>
+     </div>
 	</div>
     <div class=overlay></div>
     <div class=header>
