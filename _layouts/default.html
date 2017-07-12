@@ -10,8 +10,30 @@
     <link rel="stylesheet" href="{{"/theme/default/syntaxhighlight.css" | relative_url}}" />
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{"/feed.xml" | relative_url}}" />
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
+	<script type="text/javascript">
+		$(window).on('load',function(){
+			$('#myModal').modal('show');
+		});
+	</script>
+	<div class="modal hide fade" id="myModal">
+	  <div class="modal-header">
+		<h3>Sorry, you have exceeded your alloted bandwidth</h3>
+	  </div>
+	  <div class="modal-body">
+		<p>Sorry you have exceeded your alloted bandwidth for site category, News/Information: Technology.</p>
+		<p>Inorder to view more content of this type you must contact the FCC and your congressional reps and
+			let them know how important net neutrality is to you</p>
+		<p> If you would like more information you can find it at <a href="https://dearfcc.com/">DearFcc.com</a></p>
+	  </div>
+	  <div class="modal-footer">
+	  </div>
+	</div>
     <div class=overlay></div>
     <div class=header>
         <div class="headerleft">
@@ -50,4 +72,3 @@
     </div>
   </body>
 </html>
-
