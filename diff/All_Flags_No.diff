@@ -1,0 +1,53 @@
+Index: usr.bin/Makefile                                                                                          [0/1951]===================================================================
+--- usr.bin/Makefile    (revision 324013)
++++ usr.bin/Makefile    (working copy)
+@@ -103,7 +103,6 @@
+        mkuzip \
+        mt \
+        ncal \
+-       netstat \
+        newgrp \
+        nfsstat \
+        nice \
+@@ -224,6 +223,7 @@
+ SUBDIR.${MK_ICONV}+=   iconv
+ SUBDIR.${MK_ICONV}+=   mkcsmapper
+ SUBDIR.${MK_ICONV}+=   mkesdb
++SUBDIR.${MK_INET*}+=     netstat
+ SUBDIR.${MK_ISCSI}+=   iscsictl
+ SUBDIR.${MK_KDUMP}+=   kdump
+ SUBDIR.${MK_KDUMP}+=   truss
+Index: usr.sbin/Makefile
+===================================================================
+--- usr.sbin/Makefile   (revision 324013)
++++ usr.sbin/Makefile   (working copy)
+@@ -19,7 +19,6 @@
+        ctld \
+        daemon \
+        dconschat \
+-       devctl \
+        devinfo \
+        digictl \
+        diskinfo \
+@@ -89,7 +88,6 @@
+        traceroute \
+        trpt \
+        tzsetup \
+-       uefisign \
+        ugidfw \
+        vigr \
+        vipw \
+@@ -124,7 +122,13 @@
+ SUBDIR.${MK_CTM}+=     ctm
+ SUBDIR.${MK_CXGBETOOL}+=       cxgbetool
+ SUBDIR.${MK_DIALOG}+=  bsdconfig
++.if ${MK_LIBCPLUSPLUS} != no
++SUBDIR.${MK_LIBCPLUSPLUS}+= devctl
++.endif
+ SUBDIR.${MK_EFI}+=     efivar efidp
++.if ${MK_OPENSSL} != no
++SUBDIR.${MK_EFI}+=      uefisign
++.endif
+ SUBDIR.${MK_FLOPPY}+=  fdcontrol
+ SUBDIR.${MK_FLOPPY}+=  fdformat
+ SUBDIR.${MK_FLOPPY}+=  fdread
