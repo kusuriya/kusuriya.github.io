@@ -8,29 +8,37 @@
     <link rel="stylesheet" href="{{"/theme/default/layout.css" | relative_url}}" />
     <!-- Syntax highlighting -->
     <link rel="stylesheet" href="{{"/theme/default/syntaxhighlight.css" | relative_url}}" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Jquery for bootsrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{"/feed.xml" | relative_url}}" />
   </head>
   <body>
-    <div class=overlay></div>
-    <div class=header>
+
+    <div class="overlay"></div>
+    
+    <div class="header">
         <div class="headerleft">
             <!-- <a href="/"><img alt="Corrupted IO Title" src="/theme/default/img/logo.png"/></a> -->
 	    <span style="color: #005500;font-size: 2.5em;">Cyberdyne Systems</span>
         </div>
-        <div class="headerright">
-            <ul class="nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/blog">Blog</a></li>
+        <div class="headerright nav-right">
+            <ul class="nav nav-pills">
+                <li role="presentation"><a href="/">Home</a></li>
+                <li role="presentation"><a href="/about">About</a></li>
+                <li role="presentation"><a href="/blog">Blog</a></li>
                 <!-- <li><a href="/resume">Resume</a></li> -->
             </ul>
         </div>
     </div>
+
     <div class="section" id="main">
     {{ content }}
     <br/>
     </div>
+    
     <div class="footer">
         <script type="text/javascript">
             function SearchMySite ()
@@ -47,5 +55,6 @@
         <a href="https://twitter.com/slaughterhut" target="tab"><img alt="twitter" src="/img/twitter.png"></a>
         <a href="https://www.linkedin.com/profile/view?id=47752648"><img alt="linkedin" src="/img/linkedin.png"></a>
     </div>
+
   </body>
 </html>

@@ -5,5 +5,15 @@ title: Corrupted.io the blog
 
 
 <div id="home">
-    <img alt="Cyberdyne Systems" style="margin: auto;display:block;" src="/img/CenterLogo.png" />
+    Welcome to my little corner of the web. I post technical howto's and walkthroughs on the blog occasionally.<br/>
+    Most of it is geared around OpenSource, System Administration, Automation, and System Engineering. 
+    If you would like to have updates pushed to you via RSS you can subscribe <a href="{{"/feed.xml"|relative_url}}">Here</a>
+    <br><br>
+    <h3>Latest Posts:</h3>
+    {% for post in site.posts limit:3 %}
+        <p><postheading><a href="{{ post.url }}">{{ post.title }}</a></postheading> <small><i>On: </i>{{ post.date | date_to_string }} <i>By: </i>{{post.author}}</small><br>
+        {{ post.excerpt | strip_html }}
+        </p>
+    {% endfor %}
+
 </div>
