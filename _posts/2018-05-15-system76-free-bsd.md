@@ -15,13 +15,13 @@ Hey all, It's been a while since I last posted but I thought I would hammer some
 To get some accounting stuff out of the way I tested this all on FreeBSD Head and 11.1, and all of it is valid as of May 10, 2018. Head is a fast moving target so some of this is only bound to improve.
 
 ## The hardware
-Intel Core i5 Gen 8
-UHD Graphics 620
-16 GB DDR4 Ram
-RTL8411B PCI Express Card Reader
-RTL8111 Gigabit ethernet controller
-Intel HD Audio
-Samsung SSD 960 PRO 512GB NVMe
+- Intel Core i5 Gen 8
+- UHD Graphics 620
+- 16 GB DDR4 Ram
+- RTL8411B PCI Express Card Reader
+- RTL8111 Gigabit ethernet controller
+- Intel HD Audio
+- Samsung SSD 960 PRO 512GB NVMe
 
 
 ## The caveats I've found
