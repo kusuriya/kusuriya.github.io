@@ -8,7 +8,7 @@ tags:
 ---
 # FreeBSD on the System76 Galago Pro
 
-Hey all, It's been a while since I last posted but I thought I would hammer something out here. My most recent purchase was a [https://system76.com](System76) Galago Pro. I thought, afer playing with POP! OS a bit, is there any reason I couldn't get BSD on this thing. Turns out the answer is no, no there isnt and it works pretty decently.
+Hey all, It's been a while since I last posted but I thought I would hammer something out here. My most recent purchase was a [System76](https://system76.com) Galago Pro. I thought, afer playing with POP! OS a bit, is there any reason I couldn't get BSD on this thing. Turns out the answer is no, no there isnt and it works pretty decently.
 
 <!-- more -->
 
@@ -25,7 +25,7 @@ To get some accounting stuff out of the way I tested this all on FreeBSD Head an
 
 
 ## The caveats I've found
-There are a few things that I cant seem to make work straight out of the box, and that is the SD Card reader, the backlight, and the audio is a bit finicky.
+There are a few things that I cant seem to make work straight out of the box, and that is the SD Card reader, the backlight, and the audio is a bit finicky. Also the trackpad doesn't respond to two finger scrolling.
 The wiki is mostly up to date, there are a few edits that need to be made still but there is a bug where I cant register an account yet so I haven't made all the changes.
 
 ## Processor
@@ -43,4 +43,5 @@ The wireless uses the iwm module, as of right now it does not seem to automagica
 I seem to be getting about 5 hours out of the battery, but everything reports out of the box as expected. I could get more by throttling the CPU down speed wise.
 
 ## Overall impression
-It is a pretty decent experience. While not as polished as a Thinkpad there is a lot of potential with a bit of work and polishing.
+It is a pretty decent experience. While not as polished as a Thinkpad there is a lot of potential with a bit of work and polishing. The laptop itself is not bad, the keyboard is responsive. The build quality is pretty solid. My only real complaint is the trackpad is stiff to click and sort of tiny. They seem to be a bit indifferent to non linux OSes running on the gear but that isnt anything new.
+I wont have any problems using it and is enough that when I work through this laptop, but I'm not sure at this stage if my next machine will be a System76 laptop, but they have impressed me enough to put them in the running when I go to look for my next portable machine but it hasn't yet replaced the hole left in my heart by lenovo messing with the thinkpad.
