@@ -1,7 +1,7 @@
 ---
 layout: default
 title: FreeBSD on the System76 Galago Pro
-date: 2018-05-15 20:07:00 -0800
+date: 2018-05-10 20:07:00 -0800
 published: yes
 tags:
     - Hardware
