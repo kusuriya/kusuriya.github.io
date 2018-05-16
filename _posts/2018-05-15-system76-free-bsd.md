@@ -24,7 +24,7 @@ To get some accounting stuff out of the way I tested this all on FreeBSD Head an
 - Samsung SSD 960 PRO 512GB NVMe
 
 
-## The caveats I've found
+## The caveats
 There are a few things that I cant seem to make work straight out of the box, and that is the SD Card reader, the backlight, and the audio is a bit finicky. Also the trackpad doesn't respond to two finger scrolling.
 The wiki is mostly up to date, there are a few edits that need to be made still but there is a bug where I cant register an account yet so I haven't made all the changes.
 
