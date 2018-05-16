@@ -8,7 +8,7 @@ tags:
 ---
 # FreeBSD on the System76 Galago Pro
 
-Hey all, It's been a while since I last posted but I thought I would hammer something out here. My most recent purchase was a (https://system76.com)[System76] Galago Pro. I thought, afer playing with POP! OS a bit, is there any reason I couldn't get BSD on this thing. Turns out the answer is no, no there isnt and it works pretty decently.
+Hey all, It's been a while since I last posted but I thought I would hammer something out here. My most recent purchase was a [https://system76.com](System76) Galago Pro. I thought, afer playing with POP! OS a bit, is there any reason I couldn't get BSD on this thing. Turns out the answer is no, no there isnt and it works pretty decently.
 
 <!-- more -->
 
