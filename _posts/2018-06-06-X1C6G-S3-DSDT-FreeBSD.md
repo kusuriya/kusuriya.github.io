@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Curing the insomnia: enable sleep for the X1 Carbon 6th Gen
+title: Curing the insomnia enable sleep for the X1 Carbon 6th Gen
 ---
 
-# Curing the insomnia: enable sleep for the X1 Carbon 6th Gen
+# Curing the insomnia, enable sleep for the X1 Carbon 6th Gen
 
 So I recently got a great deal on an X1 Carbon 6th generation and love it, but there were a few downsides to it. The biggest down side is recently Lenovo decided to go all in on new is better and only provides S0ix sleep states. This is an issue for operating systems that do not support S0ix sleep states yet, like FreeBSD. But never fear, thanks to a few linux hackers and some creative work we can patch S3 back into our DSDT tables and be good to go.
 
