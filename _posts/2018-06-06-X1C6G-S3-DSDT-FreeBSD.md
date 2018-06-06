@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Curing the insomnia enable sleep for the X1 Carbon 6th Gen
+title: Curing the insomnia, enable sleep for the X1 Carbon 6th Gen
 ---
 
 # Curing the insomnia, enable sleep for the X1 Carbon 6th Gen
