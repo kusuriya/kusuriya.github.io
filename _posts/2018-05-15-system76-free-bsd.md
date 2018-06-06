@@ -10,7 +10,7 @@ tags:
 
 Hey all, It's been a while since I last posted but I thought I would hammer something out here. My most recent purchase was a [System76](https://system76.com) Galago Pro. I thought, afer playing with POP! OS a bit, is there any reason I couldn't get BSD on this thing. Turns out the answer is no, no there isnt and it works pretty decently.
 
-<!-- more -->
+<!--more-->
 
 To get some accounting stuff out of the way I tested this all on FreeBSD Head and 11.1, and all of it is valid as of May 10, 2018. Head is a fast moving target so some of this is only bound to improve.
 
