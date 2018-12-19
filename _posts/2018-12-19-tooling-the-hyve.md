@@ -7,7 +7,7 @@ Hey all, It's been a while here so I figured I would write up some stuff I have 
 BHYVE is a great hypervisor project that started with the idea of FreeBSD needing its own hypervisor like KVM, but if we were going to make KVM today what would we do?
 There are all sorts of features with it and it gets better every day but as a Sysadmin my major gripe with it has been simple, tooling. Well Libvirt to the rescue.
 
-<!-- more -->
+<!--more-->
 
 ## Installation
 So installing on FreeBSD is pretty easy `pkg install libvirt` it will spin around, install the latest it has, and be ready to go. Now the release notes to mention setting up the default networking but honestly unless you have the desire to use NAT networking you dont need to pull this in. All in all this part was super painless.
