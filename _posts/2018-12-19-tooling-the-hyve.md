@@ -23,7 +23,7 @@ Honestly the default network mentioned above does not work right out of the box.
 ### NAT
 So for my local semi isolated labs that I still like having access to the internet with I love to hide them behind a NAT gateway and firewal. For this one here you really need just a couple things
 
-1. `/usr/local/share/libvirt/quemu/networks/default.xml` which is the template for the default natted network
+1. `ls /usr/local/share/examples/libvirt/networks/default.xml` which is the template for the default natted network
 2. pf enabled and installed
 
 Now the reason I go for PF here is it is the easiest for me to configure and get going. you could use natd or ipfw or anything else that will nat network traffic, FreeBSD has a lot of ways to skin that cat and is great for giving you options for high performance networks. 
@@ -38,3 +38,26 @@ This guy is actually fairly simple here. Create a bridge like you would for any 
 This part is honestly easy as can be and you can find the instructions in the [handbook](https://www.freebsd.org/doc/handbook/network-bridging.html). But first you will want to create the bridge itself `ifconfig bridge create` the output from that will tell you the bridges name in this case since the test box has no other bridges its `bridge0`. Now we need to add the uplink to the bridge `ifconfig bridge0 addm em0` and set Spanning Tree Protocol on the uplink `ifconfig bridge0 stp em0` and there you go, you should have a bridge that is ready to pretend to be a virtual switch, just add tap interfaces for everything that needs to communicate on the switch.
 
 #### Configuring libvirt to talk on the bridge.
+This in itself is pretty easy, you can use something like virsh to create the bridged network, or just create the XML by hand.
+I did the inital XML creation by hand and it honestly is just
+```xml
+<network>
+  <name>default</name>
+  <uuid>8acd39f7-f050-11e8-8d5f-00259069ef52</uuid>
+  <forward mode='bridge'/>
+  <bridge name='bridge0'>
+</network>
+```
+
+With that you will nave a network named default that you can set your VMs up on and they will be bridged out. It is worth noting if you do this by hand that UUID must be unique for every different network you have.
+
+## My first VM
+So basically it builds all to this. Now everyone that is used to using libvirt on other platforms will know this is the sort of sucky part where there are tools to help you since libvirt does everything in XML. Not all of the tools understand the BHYVE driver, because of that I elect to manually modify templates. For some brevity I will link the [bhyve driver page](https://libvirt.org/drvbhyve.html), you can steal what I am using as a template from there. Once you have that template going its really exactly like you are used to on any other platform, just 'virsh create /tmp/sweet-linux-uefi-vm.xml' and out comes your VM. The bhyve driver supports UEFI and VNC so you get all of the goodies there.
+
+## Caveats
+- The tried their best but this is still a community supported driver that has been mainlined, as such if bhyve has added features there is no promise that the libvirt driver will understand them. 
+- Libvirt is still libvirt, and youll need to secure it appropriately, the underlined OS doesnt nessicarily improve the security of the software running on it.
+- The biggest downer for me is this one, nobody seems to have updated virt-manager's creator, so while you can use virt-manager to interact with existing virts you cant create new ones. what I have done to get around this guy is I just do the create with virsh and spin them up then use virt-manager to manage them. No fuss no mess.
+
+## Overall impression
+Honestly other than the XML this is probably the most polished familiar way of tooling bhyve that with minor overhad would allow the porting of lots of very familiar tools for non BSD admins. The bus factor is low on it so more hands would make light work and having the BHYVE team and the enthusiast such as my self adopt the driver would take us a long way in having a really neat supportable toolable virtualizer based on FreeBSD.
