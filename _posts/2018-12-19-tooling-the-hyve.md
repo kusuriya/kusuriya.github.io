@@ -31,7 +31,7 @@ So for my local semi isolated labs that I still like having access to the intern
 
 2. pf enabled and installed
 
-Now the reason I go for PF here is it is the easiest for me to configure and get going. you could use natd or ipfw or anything else that will nat network traffic, FreeBSD has a lot of ways to skin that cat and is great for giving you options for high performance networks. 
+Now the reason I go for PF here is it is the easiest for me to configure and get going. You could use natd or ipfw or anything else that will nat network traffic, FreeBSD has a lot of ways to skin that cat and is great for giving you options for high performance networks. 
 
 So the basics of setting this up are pretty simple. First you want to copy the default network template into `/usr/local/etc/libvirt/qemu/networks/default.xml` now with that you will have a basic natted network configured in libvirt. When you start it it will create a bridge named `vir-br0` start dnsmasq up and server DHCP from the IP ranges listed in `default.xml` and the guests if you were to start them now could speak with eachother and the host. The part missing here is the actual NAT. So for that it is just a quick trip into the pf.conf file and adding a nat-to directive like `from 192.168.0.1/24 to (egress:0) nat-to egress`. With that you should be able to either start PF or just reload the ruleset and get natting. No fuss or muss, libvirt does most of this correctly and just doesnt know how to handle PF. For a more flexible setup I would consider looking at making rule anchors in an external file that automation has access to modify and add new networks as needed. This will allow you to not have a giant unwieldy pf.conf and make automation less prone to errors.
 
