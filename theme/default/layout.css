@@ -3,20 +3,20 @@ body {
   font:14px/1.5 "Liberation Sans", Arial, sans-serif;
   font-weight:300;
   /* background: url("/img/bg1.jpg") 0 0 no-repeat fixed; */
-  background: #ffffff 0 0 no-repeat fixed;
+  background: #eeeeee 0 0 no-repeat fixed;
 }
 h1, h2, h3, h4, h5, h6{
   color: #005500;
 }
 div.bgunderlay {
   /* background: url("/img/bg1.jpg") 0 0 no-repeat fixed; */
-  background: #ffffff 0 0 no-repeat fixed;
+  background: #eeeeee 0 0 no-repeat fixed;
 }
 div.overlay {
   opacity: .98;
   filter:alpha(opacity=99.9);
   z-index: 2;
-  background: #ededed 0 0 no-repeat fixed;
+  background: #eeeeee 0 0 no-repeat fixed;
   height: 100%;
   width: 100%;
   position: fixed;
@@ -31,7 +31,7 @@ div.header {
   top: 0;
   left: 0;
   position:fixed;
-  background-color: #ededed;
+  background-color: #eeeeee;
   z-index: 20;
 }
 
@@ -69,7 +69,7 @@ div.footer {
   position:fixed;
   bottom:0px;
   left:0px;
-  background-color: #ffffff;
+  background-color: #eeeeee;
   z-index: 20;
 }
 
