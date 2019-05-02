@@ -10,6 +10,8 @@ data_dir:     _data
 includes_dir: _includes
 excerpt_separator: <!--more-->
 
+include: [".well-known"]
+
 # Filtering Content
 show_drafts: null
 limit_posts: 0
