@@ -22,7 +22,11 @@
     <div class="header">
         <div class="headerleft">
             <!-- <a href="/"><img alt="Corrupted IO Title" src="/theme/default/img/logo.png"/></a> -->
-	        <span style="color: #005500;font-size: 2.5em;">Cyberdyne Systems</span>
+            <span style="color: #005500;font-size: 2.5em;">Cyberdyne Systems</span>
+            <a href="{{"/blog/feed.xml" | relative_url}}"><img src="/img/rss.gif" alt="Stalk this page with RSS"></a>
+            <a href="https://github.com/kusuriya" target="tab"><img alt="github" src="/img/github.png"></a>
+        <a href="https://twitter.com/slaughterhut" target="tab"><img alt="twitter" src="/img/twitter.png"></a>
+        <a href="https://www.linkedin.com/profile/view?id=47752648"><img alt="linkedin" src="/img/linkedin.png"></a>
         </div>
         <div class="headerright nav-right">
             <ul class="nav nav-pills">
@@ -38,23 +42,5 @@
     {{ content }}
     <br/>
     </div>
-    
-    <div class="footer">
-        <script type="text/javascript">
-            function SearchMySite ()
-            {
-                SearchEngine = 'https://www.duckduckgo.com/?q='
-                Site = 'corrupted.io'
-                url = SearchEngine+document.getElementById('SearchQuery').value+'+site:'+Site;
-                window.location.href = url;
-            }
-        </script>
-        <input class="search" type="search" id="SearchQuery" placeholder="DDG search this site" onkeydown="if(event.which == 13){SearchMySite();}">
-        <a href="{{"/blog/feed.xml" | relative_url}}"><img src="/img/rss.gif" alt="Stalk this page with RSS"></a>
-        <a href="https://github.com/kusuriya" target="tab"><img alt="github" src="/img/github.png"></a>
-        <a href="https://twitter.com/slaughterhut" target="tab"><img alt="twitter" src="/img/twitter.png"></a>
-        <a href="https://www.linkedin.com/profile/view?id=47752648"><img alt="linkedin" src="/img/linkedin.png"></a>
-    </div>
-
   </body>
 </html>
