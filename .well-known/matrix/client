@@ -1,6 +1,6 @@
 {
   "m.homeserver": {
-    "base_url": "https://corrupted.io.ems.host:443"
+    "base_url": "https://corrupted.element.io:443"
   },
   "m.identity_server": {
     "base_url": "https://vector.im"
