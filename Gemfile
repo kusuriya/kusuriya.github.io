@@ -1,0 +1,5 @@
+source 'https://rubygems.org'
+gem 'jekyll-redirect-from'
+gem 'jekyll-paginate'
+gem 'jekyll-twitter-plugin'
+gem 'jekyll-seo-tag'
