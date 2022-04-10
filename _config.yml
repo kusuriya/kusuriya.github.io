@@ -18,13 +18,28 @@ limit_posts: 0
 future:      false
 unpublished: false
 
-gems: [jekyll-paginate]
+#gems: [jekyll-paginate, jekyll-twitter-plugin, jekyll-redirect-from,jekyll-tagging,jekyll-responsive-image]
 
 plugins:
   - jekyll-redirect-from
+  - jekyll-paginate
+  - jekyll-twitter-plugin
+  - jekyll-seo-tag
 
 paginate: 10
 paginate_path: "blog/page:num"
+
+twitter:
+  username: slaughterhut
+  card: summary
+
+social:
+  name: "Jason Barbier"
+  links:
+    - https://twitter.com/slaughterhut
+    - https://www.linkedin.com/in/jas-bar
+    - https://github.com/kusuriya
+    - https://hackers.town/@kusuriya
 
 defaults:
 -
