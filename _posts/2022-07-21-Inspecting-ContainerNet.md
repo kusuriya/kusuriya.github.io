@@ -16,7 +16,7 @@ inspect later". That felt less than satisfying and produced a lot of work that j
 you can dump a machine into promiscuous mode and let the packets roll in so I wondered "Why cant I do that in docker!" turns out the answer was 
 you can, if you know how. So lets walk down that path.
 
-<!-- more -->
+<!--more-->
 
 ## Basic Setup
 
