@@ -136,6 +136,51 @@ small {
   background: #eeeeee;
 }
 
+pre {
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 4px;
+}
+
+code {
+  word-break: break-word;
+}
+
+table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* === Mobile === */
+@media (max-width: 600px) {
+  ul.nav a {
+    font-size: 1.1em;
+    padding: 0.2rem 0.4rem;
+  }
+  div.header {
+    height: auto;
+    min-height: 50px;
+  }
+  div.section {
+    padding: 1rem;
+    margin-top: 65px;
+  }
+}
+
 /* === Dark mode === */
 @media (prefers-color-scheme: dark) {
   body {
@@ -172,6 +217,12 @@ small {
   footer .tagline,
   footer a {
     color: #4caf50;
+  }
+  pre {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  th, td {
+    border-color: #444;
   }
   .highlight {
     background: #1a1a1a;
