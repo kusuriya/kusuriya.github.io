@@ -2,7 +2,7 @@
 
 *So you built a RAG pipeline. Congrats. You probably think you're safe because the LLM "only answers from approved documents." I have some bad news.*
 
----
+<!--more-->
 
 ## The Gap Nobody Talks About
 
