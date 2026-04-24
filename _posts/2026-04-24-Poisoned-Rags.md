@@ -1,3 +1,19 @@
+---
+layout: default
+title: 'RAG Poisoning: When Your "Safe" AI Eats Bad Documents'
+Date: 2026-04-24 00:00:00 -0700
+published: yes
+tags:
+    - RAG
+    - LLM
+    - AI Security
+    - Prompt Injection
+    - Adversarial ML
+    - Embeddings
+    - Infosec
+    - Cybersecurity
+---
+
 # RAG Poisoning: When Your "Safe" AI Eats Bad Documents
 
 *So you built a RAG pipeline. Congrats. You probably think you're safe because the LLM "only answers from approved documents." I have some bad news.*

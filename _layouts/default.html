@@ -1,40 +1,33 @@
 <!doctype html>
 <html>
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title }}</title>
     <meta name="author" content="Jason Barbier" />
-    <!-- Theme stylesheets -->
     <link rel="stylesheet" href="{{"/theme/default/layout.css" | relative_url}}" />
-    <!-- Syntax highlighting -->
     <link rel="stylesheet" href="{{"/theme/default/syntaxhighlight.css" | relative_url}}" />
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Jquery for bootsrap -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{"/feed.xml" | relative_url}}" />
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
     {% seo %}
   </head>
   <body>
 
-    <!--<div class="overlay"></div>-->
-    
     <div class="header">
         <div class="headerleft">
             <span><img src="/img/title.png" alt="Corrupted IO"/></span>
             <a href="{{"/blog/feed.xml" | relative_url}}"><img src="/img/rss.gif" alt="Stalk this page with RSS"></a>
-            <a href="https://github.com/kusuriya" target="tab"><img alt="github" src="/img/github.png"></a>
+            <a href="https://github.com/kusuriya" target="_tab"><img alt="github" src="/img/github.png"></a>
         <a href="https://www.linkedin.com/in/jas-bar"><img alt="linkedin" src="/img/linkedin.png"></a>
         <a href="https://creativecommons.org/licenses/by/4.0/"><img height="15px" width="80px" src="/img/ccby.png" alt="CC-BY"/></a>
         </div>
         <div class="headerright nav-right">
-            <ul class="nav nav-pills">
-                <li role="presentation"><a href="/">Home</a></li>
-                <li role="presentation"><a href="/about">About</a></li>
-                <li role="presentation"><a href="/wishlist.html">Wishlist</a></li>
-                <li role="presentation"><a href="/blog">Blog</a></li>
-                <!-- <li><a href="/resume">Resume</a></li> -->
+            <ul class="nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/wishlist.html">Wishlist</a></li>
+                <li><a href="/blog">Blog</a></li>
             </ul>
         </div>
     </div>
@@ -43,5 +36,17 @@
     {{ content }}
     <br/>
     </div>
+
+    <footer>
+      <div class="footer-inner">
+        <span class="tagline">Dirty hacks: Done dirt cheap</span>
+        <span class="footer-links">
+          <a href="https://masto.hackers.town/@kusuriya">Mastodon</a> &middot;
+          <a href="https://github.com/kusuriya">GitHub</a> &middot;
+          <a href="https://kusuriya.omg.lol">Contact</a>
+        </span>
+        <span class="copy">&copy; Jason Barbier &middot; CC-BY 4.0</span>
+      </div>
+    </footer>
   </body>
 </html>
