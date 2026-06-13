@@ -160,7 +160,7 @@ th, td {
   border: 1px solid #ccc;
 }
 
-.section img {
+img {
   max-width: 100%;
   height: auto;
 }
