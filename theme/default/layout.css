@@ -28,6 +28,7 @@
   --code-bg: rgba(14, 116, 144, 0.06);
   --mountain-far: rgba(14, 116, 144, 0.16);
   --mountain-near: rgba(14, 116, 144, 0.30);
+  --sun-glow: rgba(179, 36, 95, 0.28);
 }
 
 /* Dark values: applied automatically when the OS prefers dark (unless the
@@ -56,6 +57,7 @@
     --code-bg: rgba(34, 211, 238, 0.06);
     --mountain-far: rgba(34, 211, 238, 0.14);
     --mountain-near: rgba(34, 211, 238, 0.28);
+    --sun-glow: rgba(255, 77, 157, 0.40);
   }
 }
 :root[data-theme="dark"] {
@@ -81,6 +83,7 @@
   --code-bg: rgba(34, 211, 238, 0.06);
   --mountain-far: rgba(34, 211, 238, 0.14);
   --mountain-near: rgba(34, 211, 238, 0.28);
+  --sun-glow: rgba(255, 77, 157, 0.40);
 }
 
 /* === Base === */
@@ -188,6 +191,37 @@ body::before {
   );
   -webkit-mask-image: linear-gradient(to top, #000 0%, #000 60%, transparent 100%);
           mask-image: linear-gradient(to top, #000 0%, #000 60%, transparent 100%);
+}
+
+/* === Neon sun ==============================================================
+   A sliced synthwave sun in the upper-right sky. Uses mask-image to cut
+   horizontal bands through the circle, creating the classic retrowave
+   look. Glow via filter so it renders outside the mask. */
+.neon-sun {
+  position: fixed;
+  right: 8%;
+  top: 18%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  z-index: 1;
+  pointer-events: none;
+  filter:
+    drop-shadow(0 0 30px var(--sun-glow))
+    drop-shadow(0 0 80px var(--accent-2));
+  -webkit-mask-image:
+    repeating-linear-gradient(
+      to bottom,
+      #000 0px, #000 14px,
+      transparent 14px, transparent 22px
+    );
+  mask-image:
+    repeating-linear-gradient(
+      to bottom,
+      #000 0px, #000 14px,
+      transparent 14px, transparent 22px
+    );
 }
 
 h1, h2, h3, h4, h5, h6 {
