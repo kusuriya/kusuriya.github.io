@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ page.title }}</title>
+    <title>{% if page.title %}{{ page.title }} &middot; {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
     <meta name="author" content="Jason Barbier" />
     <link rel="stylesheet" href="{{"/theme/default/layout.css" | relative_url}}" />
     <link rel="stylesheet" href="{{"/theme/default/syntaxhighlight.css" | relative_url}}" />
@@ -32,16 +32,16 @@
         </div>
     </div>
 
-    <div class="section" id="main">
+    <main class="section" id="main">
     {{ content }}
     <br/>
-    </div>
+    </main>
 
     <footer>
       <div class="footer-inner">
         <span class="tagline">Dirty hacks: Done dirt cheap</span>
         <span class="footer-links">
-          <a href="https://masto.hackers.town/@kusuriya">Mastodon</a> &middot;
+          <a href="https://hackers.town/@kusuriya" rel="me">Mastodon</a> &middot;
           <a href="https://github.com/kusuriya">GitHub</a> &middot;
           <a href="https://kusuriya.omg.lol">Contact</a>
         </span>

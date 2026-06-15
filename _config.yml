@@ -1,7 +1,7 @@
 #highlighter: pygments
 #pygments: true
 #markdown: redcarpet
-name: Cyberdyne Systems
+name: Corrupted.io
 description: A tech log
 url: https://corrupted.io
 plugins_dir:  _plugins

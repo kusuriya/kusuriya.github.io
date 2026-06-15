@@ -8,12 +8,6 @@ body {
   background: #eeeeee 0 0 no-repeat fixed;
 }
 
-main {
-  padding: 1rem;
-  max-width: 80ch;
-  margin: auto;
-}
-
 h1, h2, h3, h4, h5, h6 {
   color: #005500;
 }
@@ -24,7 +18,7 @@ div.header {
   height: 50px;
   top: 0;
   left: 0;
-  position: fixed;
+  position: sticky;
   z-index: 20;
   background-color: #eeeeee;
   box-shadow: 0 1px 5px gray;
@@ -61,18 +55,25 @@ ul.nav a {
   border-radius: 4px;
   transition: background 0.2s;
 }
-ul.nav a:hover {
+ul.nav a:hover,
+ul.nav a:focus-visible {
   background: rgba(0, 85, 0, 0.1);
+}
+a:focus-visible {
+  outline: 2px solid #005500;
+  outline-offset: 2px;
 }
 
 /* === Content === */
-div.section {
-  margin: 55px auto 2rem;
+.section {
+  margin: 2rem auto;
   max-width: 80ch;
   position: relative;
   z-index: 10;
-  background-color: #eeeeee;
-  box-shadow: 0px 2px 10px gray;
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
   padding: 1.5rem;
 }
 
@@ -84,12 +85,16 @@ div.pagination {
 }
 
 /* === Post list === */
-postheading {
-  font-size: 25px;
+.post-title {
+  font-size: 1.6rem;
+  margin: 1.2rem 0 0.2rem;
 }
-postheading a {
+.post-title a {
   color: #005500;
   text-decoration: none;
+}
+.post-title a:hover {
+  text-decoration: underline;
 }
 
 /* === Footer === */
@@ -175,9 +180,8 @@ img {
     height: auto;
     min-height: 50px;
   }
-  div.section {
+  .section {
     padding: 1rem;
-    margin-top: 65px;
   }
 }
 
@@ -191,8 +195,9 @@ img {
     background-color: #1a1a1a;
     box-shadow: 0 1px 5px #000;
   }
-  div.section {
+  .section {
     background-color: #1a1a1a;
+    border-color: #333;
     box-shadow: 0px 2px 10px #000;
   }
   h1, h2, h3, h4, h5, h6 {
@@ -204,11 +209,14 @@ img {
   ul.nav a:hover {
     background: rgba(76, 175, 80, 0.15);
   }
-  postheading a {
+  .post-title a {
     color: #4caf50;
   }
   a {
     color: #80cbc4;
+  }
+  a:focus-visible {
+    outline-color: #4caf50;
   }
   footer {
     color: #aaa;
