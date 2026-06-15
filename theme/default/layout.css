@@ -287,6 +287,20 @@ a:focus-visible {
   margin: 0 0 0.5rem;
 }
 
+.subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+  color: var(--accent-2);
+  margin: -0.25rem 0 1.5rem;
+  text-shadow: 0 0 6px var(--accent-2);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 1.5rem 0;
+}
+
 /* === Header === */
 div.header {
   position: sticky;
