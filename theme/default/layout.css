@@ -1,89 +1,37 @@
 /* === Theme tokens ===
-   Dystopian cyberpunk palette: cyan + magenta accents, tuned for
-   readability — soft off-white on near-black (dark) and dark slate on a
-   cool off-white (light), avoiding harsh pure black/white and raw neon. */
+   Dark-only cyberpunk palette: cyan + magenta neon on near-black.
+   No light mode — always dark. Gritty monospace typography. */
 :root {
-  color-scheme: light;
-  --font-sans: "Liberation Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  --font-mono: ui-monospace, "Cascadia Code", "JetBrains Mono", "Fira Code", "Liberation Mono", Consolas, monospace;
-
-  --bg: #e7eaf0;
-  --bg-grid: rgba(14, 116, 144, 0.22);
-  --text: #1b212e;
-  --heading: #0c6076;
-  --accent: #0e7490;
-  --accent-2: #b3245f;
-  --accent-soft: rgba(14, 116, 144, 0.12);
-  --link: #0e7490;
-  --link-hover: #b3245f;
-  --glow: rgba(14, 116, 144, 0.28);
-  --header-bg: #eceff4;
-  --header-shadow: rgba(14, 116, 144, 0.22);
-  --surface: #f5f7fb;
-  --surface-border: #c6cedd;
-  --surface-shadow: rgba(27, 33, 46, 0.12);
-  --muted: #4a5468;
-  --small: #5a6478;
-  --rule: #c6cedd;
-  --code-bg: rgba(14, 116, 144, 0.06);
-  --mountain-far: rgba(14, 116, 144, 0.16);
-  --mountain-near: rgba(14, 116, 144, 0.30);
-  --sun-glow: rgba(179, 36, 95, 0.28);
-}
-
-/* Dark values: applied automatically when the OS prefers dark (unless the
-   visitor has explicitly chosen light), and when the toggle forces dark. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --bg: #0c0e13;
-    --bg-grid: rgba(34, 211, 238, 0.22);
-    --text: #c7d2e0;
-    --heading: #34e3ea;
-    --accent: #22d3ee;
-    --accent-2: #ff4d9d;
-    --accent-soft: rgba(34, 211, 238, 0.15);
-    --link: #5fe6f2;
-    --link-hover: #ff4d9d;
-    --glow: rgba(34, 211, 238, 0.48);
-    --header-bg: #10141c;
-    --header-shadow: rgba(34, 211, 238, 0.25);
-    --surface: #11151d;
-    --surface-border: #233044;
-    --surface-shadow: rgba(0, 0, 0, 0.6);
-    --muted: #8fa0b5;
-    --small: #7c8aa0;
-    --rule: #233044;
-    --code-bg: rgba(34, 211, 238, 0.06);
-    --mountain-far: rgba(34, 211, 238, 0.14);
-    --mountain-near: rgba(34, 211, 238, 0.28);
-    --sun-glow: rgba(255, 77, 157, 0.40);
-  }
-}
-:root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #0c0e13;
-  --bg-grid: rgba(34, 211, 238, 0.22);
+
+  /* Gritty typography — monospace everywhere for a terminal feel */
+  --font-sans: "Courier New", "Liberation Mono", ui-monospace, "Cascadia Code", "JetBrains Mono", "Fira Code", Consolas, monospace;
+  --font-mono: "Courier New", "Liberation Mono", ui-monospace, "Cascadia Code", "JetBrains Mono", "Fira Code", Consolas, monospace;
+
+  --bg: #080a0f;
+  --bg-grid: rgba(34, 211, 238, 0.18);
   --text: #c7d2e0;
   --heading: #34e3ea;
   --accent: #22d3ee;
   --accent-2: #ff4d9d;
-  --accent-soft: rgba(34, 211, 238, 0.15);
+  --accent-soft: rgba(34, 211, 238, 0.12);
   --link: #5fe6f2;
   --link-hover: #ff4d9d;
-  --glow: rgba(34, 211, 238, 0.48);
-  --header-bg: #10141c;
-  --header-shadow: rgba(34, 211, 238, 0.25);
-  --surface: #11151d;
-  --surface-border: #233044;
-  --surface-shadow: rgba(0, 0, 0, 0.6);
+  --glow: rgba(34, 211, 238, 0.45);
+  --header-bg: #0a0d15;
+  --header-shadow: rgba(34, 211, 238, 0.22);
+  --surface: #0d1117;
+  --surface-border: #1a2535;
+  --surface-shadow: rgba(0, 0, 0, 0.7);
   --muted: #8fa0b5;
   --small: #7c8aa0;
-  --rule: #233044;
-  --code-bg: rgba(34, 211, 238, 0.06);
-  --mountain-far: rgba(34, 211, 238, 0.14);
-  --mountain-near: rgba(34, 211, 238, 0.28);
-  --sun-glow: rgba(255, 77, 157, 0.40);
+  --rule: #1a2535;
+  --code-bg: rgba(34, 211, 238, 0.04);
+
+  --skyline-far: rgba(34, 211, 238, 0.08);
+  --skyline-near: rgba(34, 211, 238, 0.16);
+  --sun-glow: rgba(255, 77, 157, 0.35);
+  --sun-inner: rgba(255, 77, 157, 0.20);
 }
 
 /* === Base === */
@@ -94,10 +42,12 @@ html {
 body {
   padding: 1rem;
   margin: auto;
-  font: 14px/1.65 var(--font-sans);
+  font: 13px/1.7 var(--font-sans);
   color: var(--text);
   font-weight: 400;
   background: transparent;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 1px rgba(34, 211, 238, 0.08);
 }
 
 /* === Perspective grid =================================================
@@ -131,104 +81,150 @@ body::after {
   right: 0;
   top: 50%;
   height: 1px;
-  z-index: -1;
+  z-index: 1;
   pointer-events: none;
   background: var(--accent);
-  box-shadow: 0 0 16px 2px var(--header-shadow);
-  opacity: 0.5;
+  box-shadow: 0 0 20px 3px var(--header-shadow);
+  opacity: 0.6;
 }
 
-/* === Mountains at the horizon =============================================
-   Two layers of mountain silhouettes sitting on the perspective-grid
-   horizon. Each uses clip-path: polygon() to carve actual jagged peaks.
-   The far range is fainter and sits behind the near range for depth.
-   Both fade at the top via mask-image so they blend into the sky. */
+/* === Cyberpunk cityscape ================================================
+   Two layers of building silhouettes on the horizon. Each uses
+   clip-path: polygon() with rectangular shapes for skyscrapers.
+   Far layer: shorter, lighter. Near layer: taller, darker. */
 
-/* far range — lower peaks, further back, lighter */
+/* far skyline — short buildings, further back */
 html::after {
   content: "";
   position: fixed;
   left: 0;
   right: 0;
   bottom: 50%;
-  height: 100px;
-  z-index: -2;
-  pointer-events: none;
-  background: var(--mountain-far);
-  clip-path: polygon(
-    0% 100%,
-    4% 72%,   8% 90%,  12% 60%,  16% 82%,  20% 68%,
-    24% 50%,  28% 78%,  32% 62%,  36% 85%,  40% 55%,
-    44% 72%,  48% 58%,  52% 80%,  56% 64%,  60% 75%,
-    64% 48%,  68% 68%,  72% 55%,  76% 78%,  80% 60%,
-    84% 72%,  88% 52%,  92% 68%,  96% 58%, 100% 80%,
-    100% 100%, 0% 100%
-  );
-  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 55%, transparent 100%);
-          mask-image: linear-gradient(to top, #000 0%, #000 55%, transparent 100%);
-}
-
-/* near range — taller peaks, darker, in front of the far range */
-body::before {
-  content: "";
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 50%;
-  height: 120px;
+  height: 90px;
   z-index: -1;
   pointer-events: none;
-  background: var(--mountain-near);
+  background: var(--skyline-far);
   clip-path: polygon(
     0% 100%,
-    2% 78%,   6% 60%,  10% 85%,  14% 48%,  18% 70%,
-    22% 55%,  26% 80%,  30% 42%,  34% 68%,  38% 52%,
-    42% 75%,  46% 45%,  50% 62%,  54% 50%,  58% 78%,
-    62% 38%,  66% 58%,  70% 46%,  74% 72%,  78% 52%,
-    82% 68%,  86% 42%,  90% 60%,  94% 50%,  98% 72%,
-    100% 58%,
+    2% 85%,   3% 85%,   3% 100%,
+    5% 100%,  5% 78%,   7% 78%,   7% 100%,
+    9% 100%,  9% 90%,  10% 90%,  10% 100%,
+    12% 100%, 12% 70%,  14% 70%,  14% 100%,
+    16% 100%, 16% 82%,  17% 82%,  17% 100%,
+    19% 100%, 19% 88%,  20% 88%,  20% 100%,
+    22% 100%, 22% 65%,  24% 65%,  24% 100%,
+    26% 100%, 26% 86%,  28% 86%,  28% 100%,
+    30% 100%, 30% 75%,  31% 75%,  31% 100%,
+    33% 100%, 33% 80%,  35% 80%,  35% 100%,
+    37% 100%, 37% 68%,  39% 68%,  39% 100%,
+    41% 100%, 41% 84%,  42% 84%,  42% 100%,
+    44% 100%, 44% 72%,  46% 72%,  46% 100%,
+    48% 100%, 48% 88%,  50% 88%,  50% 100%,
+    52% 100%, 52% 74%,  53% 74%,  53% 100%,
+    55% 100%, 55% 82%,  57% 82%,  57% 100%,
+    59% 100%, 59% 66%,  61% 66%,  61% 100%,
+    63% 100%, 63% 78%,  64% 78%,  64% 100%,
+    66% 100%, 66% 86%,  68% 86%,  68% 100%,
+    70% 100%, 70% 70%,  72% 70%,  72% 100%,
+    74% 100%, 74% 84%,  75% 84%,  75% 100%,
+    77% 100%, 77% 62%,  79% 62%,  79% 100%,
+    81% 100%, 81% 80%,  83% 80%,  83% 100%,
+    85% 100%, 85% 76%,  86% 76%,  86% 100%,
+    88% 100%, 88% 68%,  90% 68%,  90% 100%,
+    92% 100%, 92% 82%,  94% 82%,  94% 100%,
+    96% 100%, 96% 72%,  97% 72%,  97% 100%,
+    100% 100%, 100% 86%, 100% 86%, 100% 100%,
     100% 100%, 0% 100%
   );
   -webkit-mask-image: linear-gradient(to top, #000 0%, #000 60%, transparent 100%);
           mask-image: linear-gradient(to top, #000 0%, #000 60%, transparent 100%);
 }
 
+/* near skyline — taller buildings, darker, foreground */
+body::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 50%;
+  height: 140px;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--skyline-near);
+  clip-path: polygon(
+    0% 100%,
+    1% 80%,   2% 80%,   2% 100%,
+    4% 100%,  4% 55%,   6% 55%,   6% 100%,
+    8% 100%,  8% 72%,   9% 72%,   9% 100%,
+    11% 100%, 11% 42%,  13% 42%,  13% 100%,
+    15% 100%, 15% 68%,  16% 68%,  16% 100%,
+    18% 100%, 18% 88%,  19% 88%,  19% 100%,
+    21% 100%, 21% 35%,  23% 35%,  23% 100%,
+    25% 100%, 25% 62%,  27% 62%,  27% 100%,
+    29% 100%, 29% 48%,  30% 48%,  30% 100%,
+    32% 100%, 32% 78%,  34% 78%,  34% 100%,
+    36% 100%, 36% 52%,  37% 52%,  37% 100%,
+    39% 100%, 39% 30%,  41% 30%,  41% 100%,
+    43% 100%, 43% 66%,  44% 66%,  44% 100%,
+    46% 100%, 46% 58%,  48% 58%,  48% 100%,
+    50% 100%, 50% 74%,  52% 74%,  52% 100%,
+    54% 100%, 54% 45%,  55% 45%,  55% 100%,
+    57% 100%, 57% 82%,  59% 82%,  59% 100%,
+    61% 100%, 61% 38%,  63% 38%,  63% 100%,
+    65% 100%, 65% 70%,  66% 70%,  66% 100%,
+    68% 100%, 68% 50%,  70% 50%,  70% 100%,
+    72% 100%, 72% 64%,  73% 64%,  73% 100%,
+    75% 100%, 75% 32%,  77% 32%,  77% 100%,
+    79% 100%, 79% 58%,  81% 58%,  81% 100%,
+    83% 100%, 83% 44%,  84% 44%,  84% 100%,
+    86% 100%, 86% 76%,  88% 76%,  88% 100%,
+    90% 100%, 90% 54%,  91% 54%,  91% 100%,
+    93% 100%, 93% 68%,  95% 68%,  95% 100%,
+    97% 100%, 97% 40%,  99% 40%,  99% 100%,
+    100% 100%, 100% 62%, 100% 62%, 100% 100%,
+    100% 100%, 0% 100%
+  );
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 65%, transparent 100%);
+          mask-image: linear-gradient(to top, #000 0%, #000 65%, transparent 100%);
+}
+
 /* === Neon sun ==============================================================
-   A sliced synthwave sun in the upper-right sky. Uses mask-image to cut
-   horizontal bands through the circle, creating the classic retrowave
-   look. Glow via filter so it renders outside the mask. */
+   Setting sun on the horizon. Uses mask-image for horizontal slice bands.
+   Bottom of the sun sits at the horizon line. Glow via filter renders
+   outside the mask. */
 .neon-sun {
   position: fixed;
-  right: 8%;
-  top: 18%;
-  width: 200px;
-  height: 200px;
+  right: 10%;
+  bottom: calc(50% - 20px);
+  width: 240px;
+  height: 240px;
   border-radius: 50%;
   background: var(--accent-2);
-  z-index: 1;
+  z-index: -2;
   pointer-events: none;
   filter:
-    drop-shadow(0 0 30px var(--sun-glow))
-    drop-shadow(0 0 80px var(--accent-2));
+    drop-shadow(0 0 40px var(--sun-glow))
+    drop-shadow(0 0 100px var(--accent-2))
+    drop-shadow(0 0 180px var(--sun-inner));
   -webkit-mask-image:
     repeating-linear-gradient(
       to bottom,
-      #000 0px, #000 14px,
-      transparent 14px, transparent 22px
+      #000 0px, #000 16px,
+      transparent 16px, transparent 26px
     );
   mask-image:
     repeating-linear-gradient(
       to bottom,
-      #000 0px, #000 14px,
-      transparent 14px, transparent 22px
+      #000 0px, #000 16px,
+      transparent 16px, transparent 26px
     );
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--heading);
   font-family: var(--font-mono);
-  letter-spacing: 0.01em;
-  text-shadow: 0 0 12px var(--glow);
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 14px var(--glow), 0 2px 0 rgba(0,0,0,0.5);
 }
 
 ::selection {
@@ -311,8 +307,6 @@ div.header {
   align-items: center;
   justify-content: space-between;
   gap: 0.25rem 1rem;
-  /* break out of the body's 1rem padding so the bar is flush to the top
-     of the viewport and spans the full width */
   margin: -1rem -1rem 0;
   padding: 0.35rem 1rem 0.85rem;
   background-color: var(--header-bg);
@@ -359,34 +353,6 @@ ul.nav a:focus-visible {
   background: var(--accent-soft);
   color: var(--link-hover);
   text-shadow: 0 0 12px var(--glow), 0 0 22px var(--glow);
-}
-
-/* Theme toggle button — styled to sit alongside the nav links.
-   Hidden unless JS is available, since it does nothing without it. */
-.theme-toggle {
-  display: none;
-}
-.js .theme-toggle {
-  display: inline-block;
-  font: inherit;
-  font-size: 1.15rem;
-  line-height: 1;
-  color: var(--accent);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  transition: background 0.2s;
-}
-.theme-toggle:hover,
-.theme-toggle:focus-visible {
-  background: var(--accent-soft);
-  text-shadow: 0 0 8px var(--glow);
-}
-.theme-toggle:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
 }
 
 /* === Content === */
@@ -499,8 +465,6 @@ pre {
   border-radius: 4px;
 }
 
-/* Let the pre styling show through; syntaxhighlight.css otherwise forces a
-   grey background on .highlight that clashes with the theme. */
 body .highlight {
   background: transparent;
 }
@@ -541,9 +505,6 @@ img {
     padding: 0.2rem 0.4rem;
     letter-spacing: 0.05em;
   }
-  .js .theme-toggle {
-    font-size: 1rem;
-  }
   div.header {
     padding: 0.35rem 0.75rem 0.75rem;
   }
@@ -560,36 +521,18 @@ img {
   }
 }
 
-/* === Dark mode syntax highlighting ===
-   Overrides the light GitHub palette in syntaxhighlight.css. Scoped under the
-   theme selectors so it wins on specificity in both auto and manual dark. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .highlight { background: transparent; }
-  :root:not([data-theme="light"]) .highlight .c  { color: #6b7a90; font-style: italic }
-  :root:not([data-theme="light"]) .highlight .err { color: #ff4d9d; background-color: transparent }
-  :root:not([data-theme="light"]) .highlight .k  { color: #ff4d9d; font-weight: bold }
-  :root:not([data-theme="light"]) .highlight .s  { color: #7ee7c7 }
-  :root:not([data-theme="light"]) .highlight .na { color: #34e3ea }
-  :root:not([data-theme="light"]) .highlight .nb { color: #ff4d9d }
-  :root:not([data-theme="light"]) .highlight .nc { color: #f0c674; font-weight: bold }
-  :root:not([data-theme="light"]) .highlight .no { color: #5fe6f2 }
-  :root:not([data-theme="light"]) .highlight .nf { color: #c792ea; font-weight: bold }
-  :root:not([data-theme="light"]) .highlight .nt { color: #34e3ea }
-  :root:not([data-theme="light"]) .highlight .nv { color: #5fe6f2 }
-  :root:not([data-theme="light"]) .highlight .m  { color: #5fe6f2 }
-  :root:not([data-theme="light"]) .highlight .o  { color: #ff4d9d; font-weight: bold }
-}
-:root[data-theme="dark"] .highlight { background: transparent; }
-:root[data-theme="dark"] .highlight .c  { color: #6b7a90; font-style: italic }
-:root[data-theme="dark"] .highlight .err { color: #ff4d9d; background-color: transparent }
-:root[data-theme="dark"] .highlight .k  { color: #ff4d9d; font-weight: bold }
-:root[data-theme="dark"] .highlight .s  { color: #7ee7c7 }
-:root[data-theme="dark"] .highlight .na { color: #34e3ea }
-:root[data-theme="dark"] .highlight .nb { color: #ff4d9d }
-:root[data-theme="dark"] .highlight .nc { color: #f0c674; font-weight: bold }
-:root[data-theme="dark"] .highlight .no { color: #5fe6f2 }
-:root[data-theme="dark"] .highlight .nf { color: #c792ea; font-weight: bold }
-:root[data-theme="dark"] .highlight .nt { color: #34e3ea }
-:root[data-theme="dark"] .highlight .nv { color: #5fe6f2 }
-:root[data-theme="dark"] .highlight .m  { color: #5fe6f2 }
-:root[data-theme="dark"] .highlight .o  { color: #ff4d9d; font-weight: bold }
+/* === Syntax highlighting (dark-only) === */
+body .highlight { background: transparent; }
+.highlight .c  { color: #6b7a90; font-style: italic }
+.highlight .err { color: #ff4d9d; background-color: transparent }
+.highlight .k  { color: #ff4d9d; font-weight: bold }
+.highlight .s  { color: #7ee7c7 }
+.highlight .na { color: #34e3ea }
+.highlight .nb { color: #ff4d9d }
+.highlight .nc { color: #f0c674; font-weight: bold }
+.highlight .no { color: #5fe6f2 }
+.highlight .nf { color: #c792ea; font-weight: bold }
+.highlight .nt { color: #34e3ea }
+.highlight .nv { color: #5fe6f2 }
+.highlight .m  { color: #5fe6f2 }
+.highlight .o  { color: #ff4d9d; font-weight: bold }

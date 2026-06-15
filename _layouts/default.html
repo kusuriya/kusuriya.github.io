@@ -5,24 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if page.title %}{{ page.title }} &middot; {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
     <meta name="author" content="Jason Barbier" />
-    <link rel="stylesheet" href="{{"/theme/default/layout.css?v=4" | relative_url}}" />
+    <link rel="stylesheet" href="{{"/theme/default/layout.css?v=5" | relative_url}}" />
     <link rel="stylesheet" href="{{"/theme/default/syntaxhighlight.css" | relative_url}}" />
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{"/blog/feed.xml" | relative_url}}" />
     <link rel="icon" type="image/png" href="/img/favicon.png" sizes="48x48" />
     {% seo %}
-    <script>
-      // Resolve the theme before first paint to avoid a flash of the wrong colors.
-      (function () {
-        document.documentElement.classList.add("js");
-        try {
-          var stored = localStorage.getItem("theme");
-          var theme = stored ||
-            (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-          document.documentElement.setAttribute("data-theme", theme);
-        } catch (e) {}
-      })();
-    </script>
   </head>
   <body>
 
@@ -41,7 +29,6 @@
                 <li><a href="/about">About</a></li>
                 <li><a href="/wishlist.html">Wishlist</a></li>
                 <li><a href="/blog">Blog</a></li>
-                <li><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false"></button></li>
             </ul>
         </div>
     </div>
@@ -64,28 +51,5 @@
       </div>
     </footer>
 
-    <script>
-      (function () {
-        var btn = document.getElementById("theme-toggle");
-        if (!btn) return;
-        var root = document.documentElement;
-        function current() {
-          return root.getAttribute("data-theme") ||
-            (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-        }
-        function label(theme) {
-          btn.textContent = theme === "dark" ? "☀" : "☾"; // sun : moon
-          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
-          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
-        }
-        label(current());
-        btn.addEventListener("click", function () {
-          var theme = current() === "dark" ? "light" : "dark";
-          root.setAttribute("data-theme", theme);
-          try { localStorage.setItem("theme", theme); } catch (e) {}
-          label(theme);
-        });
-      })();
-    </script>
   </body>
 </html>
