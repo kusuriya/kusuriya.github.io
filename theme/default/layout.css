@@ -26,9 +26,8 @@
   --small: #5a6478;
   --rule: #c6cedd;
   --code-bg: rgba(14, 116, 144, 0.06);
-  --mountain-far: rgba(14, 116, 144, 0.06);
-  --mountain-mid: rgba(14, 116, 144, 0.10);
-  --mountain-near: rgba(14, 116, 144, 0.16);
+  --mountain-far: rgba(14, 116, 144, 0.16);
+  --mountain-near: rgba(14, 116, 144, 0.30);
 }
 
 /* Dark values: applied automatically when the OS prefers dark (unless the
@@ -55,9 +54,8 @@
     --small: #7c8aa0;
     --rule: #233044;
     --code-bg: rgba(34, 211, 238, 0.06);
-    --mountain-far: rgba(34, 211, 238, 0.05);
-    --mountain-mid: rgba(34, 211, 238, 0.09);
-    --mountain-near: rgba(34, 211, 238, 0.15);
+    --mountain-far: rgba(34, 211, 238, 0.14);
+    --mountain-near: rgba(34, 211, 238, 0.28);
   }
 }
 :root[data-theme="dark"] {
@@ -81,9 +79,8 @@
   --small: #7c8aa0;
   --rule: #233044;
   --code-bg: rgba(34, 211, 238, 0.06);
-  --mountain-far: rgba(34, 211, 238, 0.05);
-  --mountain-mid: rgba(34, 211, 238, 0.09);
-  --mountain-near: rgba(34, 211, 238, 0.15);
+  --mountain-far: rgba(34, 211, 238, 0.14);
+  --mountain-near: rgba(34, 211, 238, 0.28);
 }
 
 /* === Base === */
@@ -145,7 +142,7 @@ body::after {
    Both fade at the top via mask-image so they blend into the sky. */
 
 /* far range — lower peaks, further back, lighter */
-main::before {
+html::after {
   content: "";
   position: fixed;
   left: 0;
