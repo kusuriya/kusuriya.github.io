@@ -1,19 +1,20 @@
 ---
 layout: default
-title: Corrupted.io the blog 
+title: Home
 ---
 
 
 <div id="home">
+    <h1 class="visually-hidden">Corrupted.io &mdash; a tech log</h1>
     Welcome to my little corner of the web. I post technical howto's and walkthroughs on the blog occasionally.<br/>
     Most of it is geared around OpenSource, System Administration, Automation, and System Engineering. 
-    If you would like to have updates pushed to you via RSS you can subscribe <a href="{{"/blog/feed.xml"|relative_url}}">here</a>
+    If you would like to have updates pushed to you, you can <a href="{{"/blog/feed.xml"|relative_url}}">subscribe via RSS</a>
     <br><br>
     <h3>Latest Posts:</h3>
     {% for post in site.posts limit:3 %}
-        <p><postheading><a href="{{ post.url }}">{{ post.title }}</a></postheading> <small><i>On: </i>{{ post.date | date_to_string }} <i>By: </i>{{post.author}}</small><br>
-        {{ post.excerpt | strip_html }}
-        </p>
+        <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <small><i>On: </i>{{ post.date | date_to_string }} <i>By: </i>{{ post.author }}</small>
+        <p>{{ post.excerpt | strip_html }}</p>
     {% endfor %}
 
 </div>

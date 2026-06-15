@@ -1,26 +1,38 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ page.title }}</title>
+    <title>{% if page.title %}{{ page.title }} &middot; {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
     <meta name="author" content="Jason Barbier" />
     <link rel="stylesheet" href="{{"/theme/default/layout.css" | relative_url}}" />
     <link rel="stylesheet" href="{{"/theme/default/syntaxhighlight.css" | relative_url}}" />
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{"/feed.xml" | relative_url}}" />
-    <link rel="icon" type="image/png" href="/img/favicon.png" />
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{"/blog/feed.xml" | relative_url}}" />
+    <link rel="icon" type="image/png" href="/img/favicon.png" sizes="48x48" />
     {% seo %}
+    <script>
+      // Resolve the theme before first paint to avoid a flash of the wrong colors.
+      (function () {
+        document.documentElement.classList.add("js");
+        try {
+          var stored = localStorage.getItem("theme");
+          var theme = stored ||
+            (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
 
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <div class="header">
         <div class="headerleft">
-            <span><img src="/img/title.png" alt="Corrupted IO"/></span>
-            <a href="{{"/blog/feed.xml" | relative_url}}"><img src="/img/rss.gif" alt="Stalk this page with RSS"></a>
-            <a href="https://github.com/kusuriya" target="_tab"><img alt="github" src="/img/github.png"></a>
-        <a href="https://www.linkedin.com/in/jas-bar"><img alt="linkedin" src="/img/linkedin.png"></a>
-        <a href="https://creativecommons.org/licenses/by/4.0/"><img height="15px" width="80px" src="/img/ccby.png" alt="CC-BY"/></a>
+            <span><img src="/img/title.png" alt="Cyberdyne Systems" width="300" height="50" /></span>
+            <a href="{{"/blog/feed.xml" | relative_url}}"><img src="/img/rss.gif" alt="Stalk this page with RSS" width="35" height="13" loading="lazy"></a>
+        <a href="https://creativecommons.org/licenses/by/4.0/"><img height="15" width="80" src="/img/ccby.png" alt="CC-BY" loading="lazy"/></a>
         </div>
         <div class="headerright nav-right">
             <ul class="nav">
@@ -28,25 +40,51 @@
                 <li><a href="/about">About</a></li>
                 <li><a href="/wishlist.html">Wishlist</a></li>
                 <li><a href="/blog">Blog</a></li>
+                <li><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false"></button></li>
             </ul>
         </div>
     </div>
 
-    <div class="section" id="main">
+    <main class="section" id="main" tabindex="-1">
     {{ content }}
     <br/>
-    </div>
+    </main>
 
     <footer>
       <div class="footer-inner">
         <span class="tagline">Dirty hacks: Done dirt cheap</span>
         <span class="footer-links">
-          <a href="https://masto.hackers.town/@kusuriya">Mastodon</a> &middot;
+          <a href="https://masto.hackers.town/@kusuriya" rel="me">Mastodon</a> &middot;
           <a href="https://github.com/kusuriya">GitHub</a> &middot;
+          <a href="https://www.linkedin.com/in/jas-bar">LinkedIn</a> &middot;
           <a href="https://kusuriya.omg.lol">Contact</a>
         </span>
         <span class="copy">&copy; Jason Barbier &middot; CC-BY 4.0</span>
       </div>
     </footer>
+
+    <script>
+      (function () {
+        var btn = document.getElementById("theme-toggle");
+        if (!btn) return;
+        var root = document.documentElement;
+        function current() {
+          return root.getAttribute("data-theme") ||
+            (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        }
+        function label(theme) {
+          btn.textContent = theme === "dark" ? "☀" : "☾"; // sun : moon
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+        }
+        label(current());
+        btn.addEventListener("click", function () {
+          var theme = current() === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", theme);
+          try { localStorage.setItem("theme", theme); } catch (e) {}
+          label(theme);
+        });
+      })();
+    </script>
   </body>
 </html>

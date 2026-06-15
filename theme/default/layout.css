@@ -1,47 +1,251 @@
+/* === Theme tokens ===
+   Dystopian cyberpunk palette: cyan + magenta accents, tuned for
+   readability — soft off-white on near-black (dark) and dark slate on a
+   cool off-white (light), avoiding harsh pure black/white and raw neon. */
+:root {
+  color-scheme: light;
+  --font-sans: "Liberation Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "JetBrains Mono", "Fira Code", "Liberation Mono", Consolas, monospace;
+
+  --bg: #e7eaf0;
+  --bg-grid: rgba(14, 116, 144, 0.22);
+  --text: #1b212e;
+  --heading: #0c6076;
+  --accent: #0e7490;
+  --accent-2: #b3245f;
+  --accent-soft: rgba(14, 116, 144, 0.12);
+  --link: #0e7490;
+  --link-hover: #b3245f;
+  --glow: rgba(14, 116, 144, 0.28);
+  --header-bg: #eceff4;
+  --header-shadow: rgba(14, 116, 144, 0.22);
+  --surface: #f5f7fb;
+  --surface-border: #c6cedd;
+  --surface-shadow: rgba(27, 33, 46, 0.12);
+  --muted: #4a5468;
+  --small: #5a6478;
+  --rule: #c6cedd;
+  --code-bg: rgba(14, 116, 144, 0.06);
+}
+
+/* Dark values: applied automatically when the OS prefers dark (unless the
+   visitor has explicitly chosen light), and when the toggle forces dark. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0c0e13;
+    --bg-grid: rgba(34, 211, 238, 0.22);
+    --text: #c7d2e0;
+    --heading: #34e3ea;
+    --accent: #22d3ee;
+    --accent-2: #ff4d9d;
+    --accent-soft: rgba(34, 211, 238, 0.15);
+    --link: #5fe6f2;
+    --link-hover: #ff4d9d;
+    --glow: rgba(34, 211, 238, 0.48);
+    --header-bg: #10141c;
+    --header-shadow: rgba(34, 211, 238, 0.25);
+    --surface: #11151d;
+    --surface-border: #233044;
+    --surface-shadow: rgba(0, 0, 0, 0.6);
+    --muted: #8fa0b5;
+    --small: #7c8aa0;
+    --rule: #233044;
+    --code-bg: rgba(34, 211, 238, 0.06);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0c0e13;
+  --bg-grid: rgba(34, 211, 238, 0.22);
+  --text: #c7d2e0;
+  --heading: #34e3ea;
+  --accent: #22d3ee;
+  --accent-2: #ff4d9d;
+  --accent-soft: rgba(34, 211, 238, 0.15);
+  --link: #5fe6f2;
+  --link-hover: #ff4d9d;
+  --glow: rgba(34, 211, 238, 0.48);
+  --header-bg: #10141c;
+  --header-shadow: rgba(34, 211, 238, 0.25);
+  --surface: #11151d;
+  --surface-border: #233044;
+  --surface-shadow: rgba(0, 0, 0, 0.6);
+  --muted: #8fa0b5;
+  --small: #7c8aa0;
+  --rule: #233044;
+  --code-bg: rgba(34, 211, 238, 0.06);
+}
+
 /* === Base === */
+html {
+  background-color: var(--bg);
+}
+
 body {
   padding: 1rem;
   margin: auto;
-  font: 14px/1.6 "Liberation Sans", Arial, sans-serif;
-  color: #000000;
-  font-weight: 300;
-  background: #eeeeee 0 0 no-repeat fixed;
+  font: 14px/1.65 var(--font-sans);
+  color: var(--text);
+  font-weight: 400;
+  background: transparent;
 }
 
-main {
-  padding: 1rem;
-  max-width: 80ch;
-  margin: auto;
+/* === Perspective grid =================================================
+   Two fixed planes — a floor and a mirrored ceiling — tilted in 3D so
+   they recede to a horizon at the vertical centre and flow off into the
+   distance. Sit behind the (opaque) content panels, so text is never
+   laid over the moving grid. */
+html::before,
+html::after {
+  content: "";
+  position: fixed;
+  left: 50%;
+  width: 300vw;
+  height: 62vh;
+  margin-left: -150vw;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(to right, var(--bg-grid) 0 2px, transparent 2px 7vmin),
+    repeating-linear-gradient(to bottom, var(--bg-grid) 0 2px, transparent 2px 7vmin);
+  background-position: 50% 0;
+}
+/* floor: lower half, receding up to the horizon */
+html::before {
+  top: 50%;
+  transform-origin: 50% 0;
+  transform: perspective(45vh) rotateX(74deg);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 28%);
+          mask-image: linear-gradient(to bottom, transparent 0%, #000 28%);
+  animation: grid-flow-down 6s linear infinite;
+}
+/* ceiling: upper half, mirror of the floor */
+html::after {
+  bottom: 50%;
+  transform-origin: 50% 100%;
+  transform: perspective(45vh) rotateX(-74deg);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 28%);
+          mask-image: linear-gradient(to top, transparent 0%, #000 28%);
+  animation: grid-flow-up 6s linear infinite;
+}
+/* glowing horizon line where the two planes meet */
+body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--accent);
+  box-shadow: 0 0 16px 2px var(--header-shadow);
+  opacity: 0.5;
+}
+
+@keyframes grid-flow-down {
+  from { background-position: 50% 0; }
+  to   { background-position: 50% 7vmin; }
+}
+@keyframes grid-flow-up {
+  from { background-position: 50% 0; }
+  to   { background-position: 50% -7vmin; }
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #005500;
+  color: var(--heading);
+  font-family: var(--font-mono);
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 12px var(--glow);
+}
+
+::selection {
+  background: var(--accent-2);
+  color: #ffffff;
+}
+
+a {
+  color: var(--link);
+  text-decoration-color: var(--accent-soft);
+  text-underline-offset: 0.15em;
+  transition: color 0.15s, text-shadow 0.15s;
+}
+a:hover {
+  color: var(--link-hover);
+  text-shadow: 0 0 12px var(--glow), 0 0 22px var(--glow);
+}
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* === Accessibility helpers === */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
+  background: var(--surface);
+  color: var(--link);
+  border: 1px solid var(--accent);
+  border-radius: 0 0 6px 0;
+  transform: translateY(-150%);
+  transition: transform 0.15s;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.page-title {
+  font-size: 2em;
+  margin: 0 0 0.5rem;
 }
 
 /* === Header === */
 div.header {
-  width: 100%;
-  height: 50px;
+  position: sticky;
   top: 0;
-  left: 0;
-  position: fixed;
   z-index: 20;
-  background-color: #eeeeee;
-  box-shadow: 0 1px 5px gray;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  /* break out of the body's 1rem padding so the bar is flush to the top
+     of the viewport and spans the full width */
+  margin: -1rem -1rem 0;
+  padding: 0.35rem 1rem 0.85rem;
+  background-color: var(--header-bg);
+  border-bottom: 2px solid var(--accent);
+  box-shadow: 0 0 12px var(--header-shadow), 0 4px 20px var(--header-shadow);
 }
 
 div.headerleft {
-  float: left;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
-
-div.headerright {
-  float: right;
-  margin: auto;
-  position: absolute;
-  right: 10px;
-  bottom: 0;
+div.headerleft img {
+  display: block;
+}
+div.headerleft span img {
+  height: 36px;
+  width: auto;
 }
 
 ul.nav {
@@ -54,25 +258,63 @@ ul.nav li {
   margin-left: 0.5rem;
 }
 ul.nav a {
-  color: #005500;
-  font-size: 1.5em;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   text-decoration: none;
-  padding: 0.25rem 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  text-shadow: 0 0 10px var(--glow);
+  transition: background 0.2s, color 0.15s, text-shadow 0.15s;
+}
+ul.nav a:hover,
+ul.nav a:focus-visible {
+  background: var(--accent-soft);
+  color: var(--link-hover);
+  text-shadow: 0 0 12px var(--glow), 0 0 22px var(--glow);
+}
+
+/* Theme toggle button — styled to sit alongside the nav links.
+   Hidden unless JS is available, since it does nothing without it. */
+.theme-toggle {
+  display: none;
+}
+.js .theme-toggle {
+  display: inline-block;
+  font: inherit;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: var(--accent);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
   border-radius: 4px;
   transition: background 0.2s;
 }
-ul.nav a:hover {
-  background: rgba(0, 85, 0, 0.1);
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  background: var(--accent-soft);
+  text-shadow: 0 0 8px var(--glow);
+}
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* === Content === */
-div.section {
-  margin: 55px auto 2rem;
+.section {
+  margin: 2rem auto;
   max-width: 80ch;
   position: relative;
   z-index: 10;
-  background-color: #eeeeee;
-  box-shadow: 0px 2px 10px gray;
+  background-color: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-top: 2px solid var(--accent);
+  border-radius: 6px;
+  box-shadow: 0px 2px 14px var(--surface-shadow);
   padding: 1.5rem;
 }
 
@@ -81,15 +323,40 @@ div.pagination {
   margin-right: auto;
   text-align: center;
   width: 25%;
+  font-family: var(--font-mono);
+}
+hr.pagination {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 1.5rem 0 0.75rem;
 }
 
 /* === Post list === */
-postheading {
-  font-size: 25px;
+.post-title {
+  font-size: 1.45rem;
+  margin: 1.4rem 0 0.2rem;
 }
-postheading a {
-  color: #005500;
+.post-title a {
+  color: var(--accent);
   text-decoration: none;
+  text-shadow: 0 0 12px var(--glow);
+}
+.post-title a::before {
+  content: "> ";
+  color: var(--accent-2);
+  text-shadow: 0 0 6px var(--accent-2);
+}
+.post-title a:hover {
+  color: var(--link-hover);
+  text-shadow: 0 0 12px var(--glow), 0 0 22px var(--glow);
+}
+
+blockquote {
+  margin: 1rem 0;
+  padding: 0.25rem 1rem;
+  border-left: 3px solid var(--accent-2);
+  color: var(--muted);
+  font-style: italic;
 }
 
 /* === Footer === */
@@ -99,52 +366,62 @@ footer {
   padding: 1rem 1.5rem;
   text-align: center;
   font-size: 0.85em;
-  color: #555;
-  border-top: 1px solid #ccc;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
 }
 footer .tagline {
   display: block;
-  font-style: italic;
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   margin-bottom: 0.5rem;
-  color: #005500;
+  color: var(--accent-2);
+  text-shadow: 0 0 6px var(--accent-2);
 }
 footer .footer-links {
   display: block;
+  font-family: var(--font-mono);
   margin-bottom: 0.5rem;
 }
 footer a {
-  color: #005500;
+  color: var(--accent);
   text-decoration: none;
 }
 footer a:hover {
-  text-decoration: underline;
+  color: var(--link-hover);
+  text-shadow: 0 0 12px var(--glow), 0 0 22px var(--glow);
 }
 
 /* === Misc === */
 a small {
-  font-size: 11px;
-  color: #777;
+  font-size: 0.8rem;
+  color: var(--small);
   margin-top: -0.6em;
   display: block;
 }
 
 small {
-  font-size: 10px;
-}
-
-.highlight {
-  background: #eeeeee;
+  font-size: 0.8rem;
+  color: var(--muted);
 }
 
 pre {
   overflow-x: auto;
   max-width: 100%;
   padding: 0.75rem;
-  background: rgba(0, 0, 0, 0.03);
+  background: var(--code-bg);
+  border-left: 2px solid var(--accent);
   border-radius: 4px;
 }
 
+/* Let the pre styling show through; syntaxhighlight.css otherwise forces a
+   grey background on .highlight that clashes with the theme. */
+body .highlight {
+  background: transparent;
+}
+
 code {
+  font-family: var(--font-mono);
   word-break: break-word;
 }
 
@@ -155,9 +432,16 @@ table {
   border-collapse: collapse;
 }
 
+th {
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+  background: var(--accent-soft);
+  color: var(--heading);
+}
+
 th, td {
   padding: 0.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--rule);
 }
 
 img {
@@ -168,76 +452,59 @@ img {
 /* === Mobile === */
 @media (max-width: 600px) {
   ul.nav a {
-    font-size: 1.1em;
+    font-size: 0.85rem;
     padding: 0.2rem 0.4rem;
+    letter-spacing: 0.05em;
+  }
+  .js .theme-toggle {
+    font-size: 1rem;
   }
   div.header {
-    height: auto;
-    min-height: 50px;
+    padding: 0.35rem 0.75rem 0.75rem;
   }
-  div.section {
+  .section {
     padding: 1rem;
-    margin-top: 65px;
   }
 }
 
-/* === Dark mode === */
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #121212;
-    color: #e0e0e0;
+/* === Reduced motion === */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
   }
-  div.header {
-    background-color: #1a1a1a;
-    box-shadow: 0 1px 5px #000;
-  }
-  div.section {
-    background-color: #1a1a1a;
-    box-shadow: 0px 2px 10px #000;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    color: #4caf50;
-  }
-  ul.nav a {
-    color: #4caf50;
-  }
-  ul.nav a:hover {
-    background: rgba(76, 175, 80, 0.15);
-  }
-  postheading a {
-    color: #4caf50;
-  }
-  a {
-    color: #80cbc4;
-  }
-  footer {
-    color: #aaa;
-    border-top-color: #333;
-  }
-  footer .tagline,
-  footer a {
-    color: #4caf50;
-  }
-  pre {
-    background: rgba(255, 255, 255, 0.05);
-  }
-  th, td {
-    border-color: #444;
-  }
-  .highlight {
-    background: #1a1a1a;
-  }
-  .highlight .c { color: #8b949e; font-style: italic }
-  .highlight .err { color: #f85149; background-color: transparent }
-  .highlight .k { color: #ff7b72; font-weight: bold }
-  .highlight .s { color: #a5d6ff }
-  .highlight .na { color: #7ee787 }
-  .highlight .nb { color: #ff7b72 }
-  .highlight .nc { color: #f0883e; font-weight: bold }
-  .highlight .no { color: #79c0ff }
-  .highlight .nf { color: #d2a8ff; font-weight: bold }
-  .highlight .nt { color: #7ee787 }
-  .highlight .nv { color: #79c0ff }
-  .highlight .m { color: #79c0ff }
-  .highlight .o { color: #ff7b72; font-weight: bold }
 }
+
+/* === Dark mode syntax highlighting ===
+   Overrides the light GitHub palette in syntaxhighlight.css. Scoped under the
+   theme selectors so it wins on specificity in both auto and manual dark. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .highlight { background: transparent; }
+  :root:not([data-theme="light"]) .highlight .c  { color: #6b7a90; font-style: italic }
+  :root:not([data-theme="light"]) .highlight .err { color: #ff4d9d; background-color: transparent }
+  :root:not([data-theme="light"]) .highlight .k  { color: #ff4d9d; font-weight: bold }
+  :root:not([data-theme="light"]) .highlight .s  { color: #7ee7c7 }
+  :root:not([data-theme="light"]) .highlight .na { color: #34e3ea }
+  :root:not([data-theme="light"]) .highlight .nb { color: #ff4d9d }
+  :root:not([data-theme="light"]) .highlight .nc { color: #f0c674; font-weight: bold }
+  :root:not([data-theme="light"]) .highlight .no { color: #5fe6f2 }
+  :root:not([data-theme="light"]) .highlight .nf { color: #c792ea; font-weight: bold }
+  :root:not([data-theme="light"]) .highlight .nt { color: #34e3ea }
+  :root:not([data-theme="light"]) .highlight .nv { color: #5fe6f2 }
+  :root:not([data-theme="light"]) .highlight .m  { color: #5fe6f2 }
+  :root:not([data-theme="light"]) .highlight .o  { color: #ff4d9d; font-weight: bold }
+}
+:root[data-theme="dark"] .highlight { background: transparent; }
+:root[data-theme="dark"] .highlight .c  { color: #6b7a90; font-style: italic }
+:root[data-theme="dark"] .highlight .err { color: #ff4d9d; background-color: transparent }
+:root[data-theme="dark"] .highlight .k  { color: #ff4d9d; font-weight: bold }
+:root[data-theme="dark"] .highlight .s  { color: #7ee7c7 }
+:root[data-theme="dark"] .highlight .na { color: #34e3ea }
+:root[data-theme="dark"] .highlight .nb { color: #ff4d9d }
+:root[data-theme="dark"] .highlight .nc { color: #f0c674; font-weight: bold }
+:root[data-theme="dark"] .highlight .no { color: #5fe6f2 }
+:root[data-theme="dark"] .highlight .nf { color: #c792ea; font-weight: bold }
+:root[data-theme="dark"] .highlight .nt { color: #34e3ea }
+:root[data-theme="dark"] .highlight .nv { color: #5fe6f2 }
+:root[data-theme="dark"] .highlight .m  { color: #5fe6f2 }
+:root[data-theme="dark"] .highlight .o  { color: #ff4d9d; font-weight: bold }
