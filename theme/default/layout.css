@@ -92,15 +92,14 @@ body {
 }
 
 /* === Perspective grid =================================================
-   Two fixed planes — a floor and a mirrored ceiling — tilted in 3D so
-   they recede to a horizon at the vertical centre and flow off into the
-   distance. Sit behind the (opaque) content panels, so text is never
-   laid over the moving grid. */
-html::before,
-html::after {
+   A single fixed plane — a floor tilted in 3D so it recedes to a horizon
+   at the vertical centre and fades off into the distance. Sits behind the
+   (opaque) content panels, so text is never laid over it. */
+html::before {
   content: "";
   position: fixed;
   left: 50%;
+  top: 50%;
   width: 300vw;
   height: 62vh;
   margin-left: -150vw;
@@ -110,26 +109,12 @@ html::after {
     repeating-linear-gradient(to right, var(--bg-grid) 0 2px, transparent 2px 7vmin),
     repeating-linear-gradient(to bottom, var(--bg-grid) 0 2px, transparent 2px 7vmin);
   background-position: 50% 0;
-}
-/* floor: lower half, receding up to the horizon */
-html::before {
-  top: 50%;
   transform-origin: 50% 0;
   transform: perspective(45vh) rotateX(74deg);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 28%);
           mask-image: linear-gradient(to bottom, transparent 0%, #000 28%);
-  animation: grid-flow-down 6s linear infinite;
 }
-/* ceiling: upper half, mirror of the floor */
-html::after {
-  bottom: 50%;
-  transform-origin: 50% 100%;
-  transform: perspective(45vh) rotateX(-74deg);
-  -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 28%);
-          mask-image: linear-gradient(to top, transparent 0%, #000 28%);
-  animation: grid-flow-up 6s linear infinite;
-}
-/* glowing horizon line where the two planes meet */
+/* glowing horizon line at the far edge of the floor */
 body::after {
   content: "";
   position: fixed;
@@ -142,15 +127,6 @@ body::after {
   background: var(--accent);
   box-shadow: 0 0 16px 2px var(--header-shadow);
   opacity: 0.5;
-}
-
-@keyframes grid-flow-down {
-  from { background-position: 50% 0; }
-  to   { background-position: 50% 7vmin; }
-}
-@keyframes grid-flow-up {
-  from { background-position: 50% 0; }
-  to   { background-position: 50% -7vmin; }
 }
 
 h1, h2, h3, h4, h5, h6 {
