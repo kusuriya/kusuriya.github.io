@@ -1,21 +1,31 @@
-/* === Theme tokens === */
+/* === Theme tokens ===
+   Dystopian cyberpunk palette: cyan + magenta accents, tuned for
+   readability — soft off-white on near-black (dark) and dark slate on a
+   cool off-white (light), avoiding harsh pure black/white and raw neon. */
 :root {
   color-scheme: light;
-  --bg: #eeeeee;
-  --text: #000000;
-  --heading: #005500;
-  --accent: #005500;
-  --accent-soft: rgba(0, 85, 0, 0.1);
-  --link: #1a5fb4;
-  --header-bg: #eeeeee;
-  --header-shadow: gray;
-  --surface: #fafafa;
-  --surface-border: #ddd;
-  --surface-shadow: rgba(0, 0, 0, 0.15);
-  --muted: #555555;
-  --small: #666666;
-  --rule: #cccccc;
-  --code-bg: rgba(0, 0, 0, 0.03);
+  --font-sans: "Liberation Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "JetBrains Mono", "Fira Code", "Liberation Mono", Consolas, monospace;
+
+  --bg: #e7eaf0;
+  --bg-grid: rgba(14, 116, 144, 0.06);
+  --text: #1b212e;
+  --heading: #0c6076;
+  --accent: #0e7490;
+  --accent-2: #b3245f;
+  --accent-soft: rgba(14, 116, 144, 0.12);
+  --link: #0e7490;
+  --link-hover: #b3245f;
+  --glow: rgba(14, 116, 144, 0.30);
+  --header-bg: #eceff4;
+  --header-shadow: rgba(14, 116, 144, 0.30);
+  --surface: #f5f7fb;
+  --surface-border: #c6cedd;
+  --surface-shadow: rgba(27, 33, 46, 0.12);
+  --muted: #4a5468;
+  --small: #5a6478;
+  --rule: #c6cedd;
+  --code-bg: rgba(14, 116, 144, 0.06);
 }
 
 /* Dark values: applied automatically when the OS prefers dark (unless the
@@ -23,58 +33,86 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #121212;
-    --text: #e0e0e0;
-    --heading: #4caf50;
-    --accent: #4caf50;
-    --accent-soft: rgba(76, 175, 80, 0.15);
-    --link: #80cbc4;
-    --header-bg: #1a1a1a;
-    --header-shadow: #000000;
-    --surface: #1a1a1a;
-    --surface-border: #333333;
-    --surface-shadow: #000000;
-    --muted: #aaaaaa;
-    --small: #999999;
-    --rule: #333333;
-    --code-bg: rgba(255, 255, 255, 0.05);
+    --bg: #0c0e13;
+    --bg-grid: rgba(34, 211, 238, 0.05);
+    --text: #c7d2e0;
+    --heading: #34e3ea;
+    --accent: #22d3ee;
+    --accent-2: #ff4d9d;
+    --accent-soft: rgba(34, 211, 238, 0.15);
+    --link: #5fe6f2;
+    --link-hover: #ff4d9d;
+    --glow: rgba(34, 211, 238, 0.55);
+    --header-bg: #10141c;
+    --header-shadow: rgba(34, 211, 238, 0.25);
+    --surface: #11151d;
+    --surface-border: #233044;
+    --surface-shadow: rgba(0, 0, 0, 0.6);
+    --muted: #8fa0b5;
+    --small: #7c8aa0;
+    --rule: #233044;
+    --code-bg: rgba(34, 211, 238, 0.06);
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #121212;
-  --text: #e0e0e0;
-  --heading: #4caf50;
-  --accent: #4caf50;
-  --accent-soft: rgba(76, 175, 80, 0.15);
-  --link: #80cbc4;
-  --header-bg: #1a1a1a;
-  --header-shadow: #000000;
-  --surface: #1a1a1a;
-  --surface-border: #333333;
-  --surface-shadow: #000000;
-  --muted: #aaaaaa;
-  --small: #999999;
-  --rule: #333333;
-  --code-bg: rgba(255, 255, 255, 0.05);
+  --bg: #0c0e13;
+  --bg-grid: rgba(34, 211, 238, 0.05);
+  --text: #c7d2e0;
+  --heading: #34e3ea;
+  --accent: #22d3ee;
+  --accent-2: #ff4d9d;
+  --accent-soft: rgba(34, 211, 238, 0.15);
+  --link: #5fe6f2;
+  --link-hover: #ff4d9d;
+  --glow: rgba(34, 211, 238, 0.55);
+  --header-bg: #10141c;
+  --header-shadow: rgba(34, 211, 238, 0.25);
+  --surface: #11151d;
+  --surface-border: #233044;
+  --surface-shadow: rgba(0, 0, 0, 0.6);
+  --muted: #8fa0b5;
+  --small: #7c8aa0;
+  --rule: #233044;
+  --code-bg: rgba(34, 211, 238, 0.06);
 }
 
 /* === Base === */
 body {
   padding: 1rem;
   margin: auto;
-  font: 14px/1.6 "Liberation Sans", Arial, sans-serif;
+  font: 14px/1.65 var(--font-sans);
   color: var(--text);
-  font-weight: 300;
-  background: var(--bg) 0 0 no-repeat fixed;
+  font-weight: 400;
+  background-color: var(--bg);
+  /* faint dystopian grid, only visible in the gutters around the panels */
+  background-image:
+    linear-gradient(var(--bg-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--heading);
+  font-family: var(--font-mono);
+  letter-spacing: 0.01em;
+}
+
+::selection {
+  background: var(--accent-2);
+  color: #ffffff;
 }
 
 a {
   color: var(--link);
+  text-decoration-color: var(--accent-soft);
+  text-underline-offset: 0.15em;
+  transition: color 0.15s, text-shadow 0.15s;
+}
+a:hover {
+  color: var(--link-hover);
+  text-shadow: 0 0 8px var(--glow);
 }
 a:focus-visible {
   outline: 2px solid var(--accent);
@@ -100,9 +138,10 @@ a:focus-visible {
   top: 0;
   z-index: 100;
   padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
   background: var(--surface);
   color: var(--link);
-  border: 1px solid var(--surface-border);
+  border: 1px solid var(--accent);
   border-radius: 0 0 6px 0;
   transform: translateY(-150%);
   transition: transform 0.15s;
@@ -131,9 +170,8 @@ div.header {
   margin: -1rem -1rem 0;
   padding: 0.35rem 1rem 0.85rem;
   background-color: var(--header-bg);
-  box-shadow: 0 1px 5px var(--header-shadow);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-bottom: 1px solid var(--accent);
+  box-shadow: 0 2px 14px var(--header-shadow);
 }
 
 div.headerleft {
@@ -160,15 +198,20 @@ ul.nav li {
 }
 ul.nav a {
   color: var(--accent);
-  font-size: 1.5em;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   text-decoration: none;
-  padding: 0.25rem 0.75rem;
+  padding: 0.3rem 0.6rem;
   border-radius: 4px;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.15s, text-shadow 0.15s;
 }
 ul.nav a:hover,
 ul.nav a:focus-visible {
   background: var(--accent-soft);
+  color: var(--link-hover);
+  text-shadow: 0 0 8px var(--glow);
 }
 
 /* Theme toggle button — styled to sit alongside the nav links.
@@ -179,7 +222,7 @@ ul.nav a:focus-visible {
 .js .theme-toggle {
   display: inline-block;
   font: inherit;
-  font-size: 1.5em;
+  font-size: 1.15rem;
   line-height: 1;
   color: var(--accent);
   background: transparent;
@@ -192,6 +235,7 @@ ul.nav a:focus-visible {
 .theme-toggle:hover,
 .theme-toggle:focus-visible {
   background: var(--accent-soft);
+  text-shadow: 0 0 8px var(--glow);
 }
 .theme-toggle:focus-visible {
   outline: 2px solid var(--accent);
@@ -206,8 +250,9 @@ ul.nav a:focus-visible {
   z-index: 10;
   background-color: var(--surface);
   border: 1px solid var(--surface-border);
+  border-top: 2px solid var(--accent);
   border-radius: 6px;
-  box-shadow: 0px 2px 10px var(--surface-shadow);
+  box-shadow: 0px 2px 14px var(--surface-shadow);
   padding: 1.5rem;
 }
 
@@ -216,19 +261,38 @@ div.pagination {
   margin-right: auto;
   text-align: center;
   width: 25%;
+  font-family: var(--font-mono);
+}
+hr.pagination {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 1.5rem 0 0.75rem;
 }
 
 /* === Post list === */
 .post-title {
-  font-size: 1.6rem;
-  margin: 1.2rem 0 0.2rem;
+  font-size: 1.45rem;
+  margin: 1.4rem 0 0.2rem;
 }
 .post-title a {
   color: var(--accent);
   text-decoration: none;
 }
+.post-title a::before {
+  content: "> ";
+  color: var(--accent-2);
+}
 .post-title a:hover {
-  text-decoration: underline;
+  color: var(--link-hover);
+  text-shadow: 0 0 8px var(--glow);
+}
+
+blockquote {
+  margin: 1rem 0;
+  padding: 0.25rem 1rem;
+  border-left: 3px solid var(--accent-2);
+  color: var(--muted);
+  font-style: italic;
 }
 
 /* === Footer === */
@@ -243,12 +307,15 @@ footer {
 }
 footer .tagline {
   display: block;
-  font-style: italic;
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   margin-bottom: 0.5rem;
-  color: var(--accent);
+  color: var(--accent-2);
 }
 footer .footer-links {
   display: block;
+  font-family: var(--font-mono);
   margin-bottom: 0.5rem;
 }
 footer a {
@@ -256,7 +323,8 @@ footer a {
   text-decoration: none;
 }
 footer a:hover {
-  text-decoration: underline;
+  color: var(--link-hover);
+  text-shadow: 0 0 8px var(--glow);
 }
 
 /* === Misc === */
@@ -269,6 +337,7 @@ a small {
 
 small {
   font-size: 0.8rem;
+  color: var(--muted);
 }
 
 pre {
@@ -276,10 +345,18 @@ pre {
   max-width: 100%;
   padding: 0.75rem;
   background: var(--code-bg);
+  border-left: 2px solid var(--accent);
   border-radius: 4px;
 }
 
+/* Let the pre styling show through; syntaxhighlight.css otherwise forces a
+   grey background on .highlight that clashes with the theme. */
+body .highlight {
+  background: transparent;
+}
+
 code {
+  font-family: var(--font-mono);
   word-break: break-word;
 }
 
@@ -288,6 +365,13 @@ table {
   overflow-x: auto;
   max-width: 100%;
   border-collapse: collapse;
+}
+
+th {
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+  background: var(--accent-soft);
+  color: var(--heading);
 }
 
 th, td {
@@ -303,11 +387,12 @@ img {
 /* === Mobile === */
 @media (max-width: 600px) {
   ul.nav a {
-    font-size: 1.1em;
+    font-size: 0.85rem;
     padding: 0.2rem 0.4rem;
+    letter-spacing: 0.05em;
   }
   .js .theme-toggle {
-    font-size: 1.1em;
+    font-size: 1rem;
   }
   div.header {
     padding: 0.35rem 0.75rem 0.75rem;
@@ -317,36 +402,43 @@ img {
   }
 }
 
+/* === Reduced motion === */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+
 /* === Dark mode syntax highlighting ===
    Overrides the light GitHub palette in syntaxhighlight.css. Scoped under the
    theme selectors so it wins on specificity in both auto and manual dark. */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .highlight { background: #1a1a1a; }
-  :root:not([data-theme="light"]) .highlight .c  { color: #8b949e; font-style: italic }
-  :root:not([data-theme="light"]) .highlight .err { color: #f85149; background-color: transparent }
-  :root:not([data-theme="light"]) .highlight .k  { color: #ff7b72; font-weight: bold }
-  :root:not([data-theme="light"]) .highlight .s  { color: #a5d6ff }
-  :root:not([data-theme="light"]) .highlight .na { color: #7ee787 }
-  :root:not([data-theme="light"]) .highlight .nb { color: #ff7b72 }
-  :root:not([data-theme="light"]) .highlight .nc { color: #f0883e; font-weight: bold }
-  :root:not([data-theme="light"]) .highlight .no { color: #79c0ff }
-  :root:not([data-theme="light"]) .highlight .nf { color: #d2a8ff; font-weight: bold }
-  :root:not([data-theme="light"]) .highlight .nt { color: #7ee787 }
-  :root:not([data-theme="light"]) .highlight .nv { color: #79c0ff }
-  :root:not([data-theme="light"]) .highlight .m  { color: #79c0ff }
-  :root:not([data-theme="light"]) .highlight .o  { color: #ff7b72; font-weight: bold }
+  :root:not([data-theme="light"]) .highlight { background: transparent; }
+  :root:not([data-theme="light"]) .highlight .c  { color: #6b7a90; font-style: italic }
+  :root:not([data-theme="light"]) .highlight .err { color: #ff4d9d; background-color: transparent }
+  :root:not([data-theme="light"]) .highlight .k  { color: #ff4d9d; font-weight: bold }
+  :root:not([data-theme="light"]) .highlight .s  { color: #7ee7c7 }
+  :root:not([data-theme="light"]) .highlight .na { color: #34e3ea }
+  :root:not([data-theme="light"]) .highlight .nb { color: #ff4d9d }
+  :root:not([data-theme="light"]) .highlight .nc { color: #f0c674; font-weight: bold }
+  :root:not([data-theme="light"]) .highlight .no { color: #5fe6f2 }
+  :root:not([data-theme="light"]) .highlight .nf { color: #c792ea; font-weight: bold }
+  :root:not([data-theme="light"]) .highlight .nt { color: #34e3ea }
+  :root:not([data-theme="light"]) .highlight .nv { color: #5fe6f2 }
+  :root:not([data-theme="light"]) .highlight .m  { color: #5fe6f2 }
+  :root:not([data-theme="light"]) .highlight .o  { color: #ff4d9d; font-weight: bold }
 }
-:root[data-theme="dark"] .highlight { background: #1a1a1a; }
-:root[data-theme="dark"] .highlight .c  { color: #8b949e; font-style: italic }
-:root[data-theme="dark"] .highlight .err { color: #f85149; background-color: transparent }
-:root[data-theme="dark"] .highlight .k  { color: #ff7b72; font-weight: bold }
-:root[data-theme="dark"] .highlight .s  { color: #a5d6ff }
-:root[data-theme="dark"] .highlight .na { color: #7ee787 }
-:root[data-theme="dark"] .highlight .nb { color: #ff7b72 }
-:root[data-theme="dark"] .highlight .nc { color: #f0883e; font-weight: bold }
-:root[data-theme="dark"] .highlight .no { color: #79c0ff }
-:root[data-theme="dark"] .highlight .nf { color: #d2a8ff; font-weight: bold }
-:root[data-theme="dark"] .highlight .nt { color: #7ee787 }
-:root[data-theme="dark"] .highlight .nv { color: #79c0ff }
-:root[data-theme="dark"] .highlight .m  { color: #79c0ff }
-:root[data-theme="dark"] .highlight .o  { color: #ff7b72; font-weight: bold }
+:root[data-theme="dark"] .highlight { background: transparent; }
+:root[data-theme="dark"] .highlight .c  { color: #6b7a90; font-style: italic }
+:root[data-theme="dark"] .highlight .err { color: #ff4d9d; background-color: transparent }
+:root[data-theme="dark"] .highlight .k  { color: #ff4d9d; font-weight: bold }
+:root[data-theme="dark"] .highlight .s  { color: #7ee7c7 }
+:root[data-theme="dark"] .highlight .na { color: #34e3ea }
+:root[data-theme="dark"] .highlight .nb { color: #ff4d9d }
+:root[data-theme="dark"] .highlight .nc { color: #f0c674; font-weight: bold }
+:root[data-theme="dark"] .highlight .no { color: #5fe6f2 }
+:root[data-theme="dark"] .highlight .nf { color: #c792ea; font-weight: bold }
+:root[data-theme="dark"] .highlight .nt { color: #34e3ea }
+:root[data-theme="dark"] .highlight .nv { color: #5fe6f2 }
+:root[data-theme="dark"] .highlight .m  { color: #5fe6f2 }
+:root[data-theme="dark"] .highlight .o  { color: #ff4d9d; font-weight: bold }
