@@ -26,6 +26,9 @@
   --small: #5a6478;
   --rule: #c6cedd;
   --code-bg: rgba(14, 116, 144, 0.06);
+  --mountain-far: rgba(14, 116, 144, 0.06);
+  --mountain-mid: rgba(14, 116, 144, 0.10);
+  --mountain-near: rgba(14, 116, 144, 0.16);
 }
 
 /* Dark values: applied automatically when the OS prefers dark (unless the
@@ -52,6 +55,9 @@
     --small: #7c8aa0;
     --rule: #233044;
     --code-bg: rgba(34, 211, 238, 0.06);
+    --mountain-far: rgba(34, 211, 238, 0.05);
+    --mountain-mid: rgba(34, 211, 238, 0.09);
+    --mountain-near: rgba(34, 211, 238, 0.15);
   }
 }
 :root[data-theme="dark"] {
@@ -75,6 +81,9 @@
   --small: #7c8aa0;
   --rule: #233044;
   --code-bg: rgba(34, 211, 238, 0.06);
+  --mountain-far: rgba(34, 211, 238, 0.05);
+  --mountain-mid: rgba(34, 211, 238, 0.09);
+  --mountain-near: rgba(34, 211, 238, 0.15);
 }
 
 /* === Base === */
@@ -127,6 +136,58 @@ body::after {
   background: var(--accent);
   box-shadow: 0 0 16px 2px var(--header-shadow);
   opacity: 0.5;
+}
+
+/* === Mountains at the horizon =============================================
+   Layered mountain silhouettes built from overlapping angled gradients,
+   sitting just below the perspective-grid horizon. Three layers (far, mid,
+   near) with staggered repeat lengths create parallax-like depth. Fade the
+   top edge so peaks blend into the sky. */
+body::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 50%;
+  height: 130px;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    /* far range — low, gentle peaks, faint */
+    repeating-linear-gradient(
+      172deg,
+      transparent,
+      transparent 48px,
+      var(--mountain-far) 48px,
+      var(--mountain-far) 50px
+    ),
+    /* mid range — sharper, slightly taller */
+    repeating-linear-gradient(
+      167deg,
+      transparent,
+      transparent 82px,
+      var(--mountain-mid) 82px,
+      var(--mountain-mid) 84px
+    ),
+    /* near range — tallest, darkest, most prominent */
+    repeating-linear-gradient(
+      171deg,
+      transparent,
+      transparent 64px,
+      var(--mountain-near) 64px,
+      var(--mountain-near) 67px
+    );
+  background-size:
+    520px 100%,
+    340px 100%,
+    210px 100%;
+  background-position:
+    0% 100%,
+    22px 100%,
+    85px 100%;
+  background-repeat: repeat-x;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 60%, transparent 100%);
+          mask-image: linear-gradient(to top, #000 0%, #000 60%, transparent 100%);
 }
 
 h1, h2, h3, h4, h5, h6 {
