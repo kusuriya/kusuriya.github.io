@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,11 +26,13 @@
   </head>
   <body>
 
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <div class="header">
         <div class="headerleft">
             <span><img src="/img/title.png" alt="Corrupted IO"/></span>
             <a href="{{"/blog/feed.xml" | relative_url}}"><img src="/img/rss.gif" alt="Stalk this page with RSS"></a>
-            <a href="https://github.com/kusuriya" target="_tab"><img alt="github" src="/img/github.png"></a>
+            <a href="https://github.com/kusuriya" target="_blank" rel="noopener"><img alt="Jason on GitHub (opens in a new tab)" src="/img/github.png"></a>
         <a href="https://www.linkedin.com/in/jas-bar"><img alt="linkedin" src="/img/linkedin.png"></a>
         <a href="https://creativecommons.org/licenses/by/4.0/"><img height="15px" width="80px" src="/img/ccby.png" alt="CC-BY"/></a>
         </div>
@@ -40,12 +42,12 @@
                 <li><a href="/about">About</a></li>
                 <li><a href="/wishlist.html">Wishlist</a></li>
                 <li><a href="/blog">Blog</a></li>
-                <li><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode"></button></li>
+                <li><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false"></button></li>
             </ul>
         </div>
     </div>
 
-    <main class="section" id="main">
+    <main class="section" id="main" tabindex="-1">
     {{ content }}
     <br/>
     </main>
@@ -74,6 +76,7 @@
         function label(theme) {
           btn.textContent = theme === "dark" ? "☀" : "☾"; // sun : moon
           btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
         }
         label(current());
         btn.addEventListener("click", function () {

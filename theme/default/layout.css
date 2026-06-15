@@ -13,7 +13,7 @@
   --surface-border: #ddd;
   --surface-shadow: rgba(0, 0, 0, 0.15);
   --muted: #555555;
-  --small: #777777;
+  --small: #666666;
   --rule: #cccccc;
   --code-bg: rgba(0, 0, 0, 0.03);
 }
@@ -79,6 +79,41 @@ a {
 a:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+/* === Accessibility helpers === */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: var(--surface);
+  color: var(--link);
+  border: 1px solid var(--surface-border);
+  border-radius: 0 0 6px 0;
+  transform: translateY(-150%);
+  transition: transform 0.15s;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.page-title {
+  font-size: 2em;
+  margin: 0 0 0.5rem;
 }
 
 /* === Header === */
@@ -226,14 +261,14 @@ footer a:hover {
 
 /* === Misc === */
 a small {
-  font-size: 11px;
+  font-size: 0.8rem;
   color: var(--small);
   margin-top: -0.6em;
   display: block;
 }
 
 small {
-  font-size: 10px;
+  font-size: 0.8rem;
 }
 
 pre {
