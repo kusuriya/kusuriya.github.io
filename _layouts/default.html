@@ -11,6 +11,18 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{"/blog/feed.xml" | relative_url}}" />
     <link rel="icon" type="image/png" href="/img/favicon.png" />
     {% seo %}
+    <script>
+      // Resolve the theme before first paint to avoid a flash of the wrong colors.
+      (function () {
+        document.documentElement.classList.add("js");
+        try {
+          var stored = localStorage.getItem("theme");
+          var theme = stored ||
+            (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
 
@@ -28,6 +40,7 @@
                 <li><a href="/about">About</a></li>
                 <li><a href="/wishlist.html">Wishlist</a></li>
                 <li><a href="/blog">Blog</a></li>
+                <li><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode"></button></li>
             </ul>
         </div>
     </div>
@@ -48,5 +61,28 @@
         <span class="copy">&copy; Jason Barbier &middot; CC-BY 4.0</span>
       </div>
     </footer>
+
+    <script>
+      (function () {
+        var btn = document.getElementById("theme-toggle");
+        if (!btn) return;
+        var root = document.documentElement;
+        function current() {
+          return root.getAttribute("data-theme") ||
+            (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        }
+        function label(theme) {
+          btn.textContent = theme === "dark" ? "☀" : "☾"; // sun : moon
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+        }
+        label(current());
+        btn.addEventListener("click", function () {
+          var theme = current() === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", theme);
+          try { localStorage.setItem("theme", theme); } catch (e) {}
+          label(theme);
+        });
+      })();
+    </script>
   </body>
 </html>

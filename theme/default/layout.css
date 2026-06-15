@@ -1,15 +1,84 @@
+/* === Theme tokens === */
+:root {
+  color-scheme: light;
+  --bg: #eeeeee;
+  --text: #000000;
+  --heading: #005500;
+  --accent: #005500;
+  --accent-soft: rgba(0, 85, 0, 0.1);
+  --link: #1a5fb4;
+  --header-bg: #eeeeee;
+  --header-shadow: gray;
+  --surface: #fafafa;
+  --surface-border: #ddd;
+  --surface-shadow: rgba(0, 0, 0, 0.15);
+  --muted: #555555;
+  --small: #777777;
+  --rule: #cccccc;
+  --code-bg: rgba(0, 0, 0, 0.03);
+}
+
+/* Dark values: applied automatically when the OS prefers dark (unless the
+   visitor has explicitly chosen light), and when the toggle forces dark. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #121212;
+    --text: #e0e0e0;
+    --heading: #4caf50;
+    --accent: #4caf50;
+    --accent-soft: rgba(76, 175, 80, 0.15);
+    --link: #80cbc4;
+    --header-bg: #1a1a1a;
+    --header-shadow: #000000;
+    --surface: #1a1a1a;
+    --surface-border: #333333;
+    --surface-shadow: #000000;
+    --muted: #aaaaaa;
+    --small: #999999;
+    --rule: #333333;
+    --code-bg: rgba(255, 255, 255, 0.05);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #121212;
+  --text: #e0e0e0;
+  --heading: #4caf50;
+  --accent: #4caf50;
+  --accent-soft: rgba(76, 175, 80, 0.15);
+  --link: #80cbc4;
+  --header-bg: #1a1a1a;
+  --header-shadow: #000000;
+  --surface: #1a1a1a;
+  --surface-border: #333333;
+  --surface-shadow: #000000;
+  --muted: #aaaaaa;
+  --small: #999999;
+  --rule: #333333;
+  --code-bg: rgba(255, 255, 255, 0.05);
+}
+
 /* === Base === */
 body {
   padding: 1rem;
   margin: auto;
   font: 14px/1.6 "Liberation Sans", Arial, sans-serif;
-  color: #000000;
+  color: var(--text);
   font-weight: 300;
-  background: #eeeeee 0 0 no-repeat fixed;
+  background: var(--bg) 0 0 no-repeat fixed;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #005500;
+  color: var(--heading);
+}
+
+a {
+  color: var(--link);
+}
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* === Header === */
@@ -20,8 +89,8 @@ div.header {
   left: 0;
   position: sticky;
   z-index: 20;
-  background-color: #eeeeee;
-  box-shadow: 0 1px 5px gray;
+  background-color: var(--header-bg);
+  box-shadow: 0 1px 5px var(--header-shadow);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -48,7 +117,7 @@ ul.nav li {
   margin-left: 0.5rem;
 }
 ul.nav a {
-  color: #005500;
+  color: var(--accent);
   font-size: 1.5em;
   text-decoration: none;
   padding: 0.25rem 0.75rem;
@@ -57,10 +126,33 @@ ul.nav a {
 }
 ul.nav a:hover,
 ul.nav a:focus-visible {
-  background: rgba(0, 85, 0, 0.1);
+  background: var(--accent-soft);
 }
-a:focus-visible {
-  outline: 2px solid #005500;
+
+/* Theme toggle button — styled to sit alongside the nav links.
+   Hidden unless JS is available, since it does nothing without it. */
+.theme-toggle {
+  display: none;
+}
+.js .theme-toggle {
+  display: inline-block;
+  font: inherit;
+  font-size: 1.5em;
+  line-height: 1;
+  color: var(--accent);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  background: var(--accent-soft);
+}
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
@@ -70,10 +162,10 @@ a:focus-visible {
   max-width: 80ch;
   position: relative;
   z-index: 10;
-  background-color: #fafafa;
-  border: 1px solid #ddd;
+  background-color: var(--surface);
+  border: 1px solid var(--surface-border);
   border-radius: 6px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 2px 10px var(--surface-shadow);
   padding: 1.5rem;
 }
 
@@ -90,7 +182,7 @@ div.pagination {
   margin: 1.2rem 0 0.2rem;
 }
 .post-title a {
-  color: #005500;
+  color: var(--accent);
   text-decoration: none;
 }
 .post-title a:hover {
@@ -104,21 +196,21 @@ footer {
   padding: 1rem 1.5rem;
   text-align: center;
   font-size: 0.85em;
-  color: #555;
-  border-top: 1px solid #ccc;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
 }
 footer .tagline {
   display: block;
   font-style: italic;
   margin-bottom: 0.5rem;
-  color: #005500;
+  color: var(--accent);
 }
 footer .footer-links {
   display: block;
   margin-bottom: 0.5rem;
 }
 footer a {
-  color: #005500;
+  color: var(--accent);
   text-decoration: none;
 }
 footer a:hover {
@@ -128,7 +220,7 @@ footer a:hover {
 /* === Misc === */
 a small {
   font-size: 11px;
-  color: #777;
+  color: var(--small);
   margin-top: -0.6em;
   display: block;
 }
@@ -137,15 +229,11 @@ small {
   font-size: 10px;
 }
 
-.highlight {
-  background: #eeeeee;
-}
-
 pre {
   overflow-x: auto;
   max-width: 100%;
   padding: 0.75rem;
-  background: rgba(0, 0, 0, 0.03);
+  background: var(--code-bg);
   border-radius: 4px;
 }
 
@@ -162,7 +250,7 @@ table {
 
 th, td {
   padding: 0.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--rule);
 }
 
 img {
@@ -176,6 +264,9 @@ img {
     font-size: 1.1em;
     padding: 0.2rem 0.4rem;
   }
+  .js .theme-toggle {
+    font-size: 1.1em;
+  }
   div.header {
     height: auto;
     min-height: 50px;
@@ -185,67 +276,36 @@ img {
   }
 }
 
-/* === Dark mode === */
+/* === Dark mode syntax highlighting ===
+   Overrides the light GitHub palette in syntaxhighlight.css. Scoped under the
+   theme selectors so it wins on specificity in both auto and manual dark. */
 @media (prefers-color-scheme: dark) {
-  body {
-    background: #121212;
-    color: #e0e0e0;
-  }
-  div.header {
-    background-color: #1a1a1a;
-    box-shadow: 0 1px 5px #000;
-  }
-  .section {
-    background-color: #1a1a1a;
-    border-color: #333;
-    box-shadow: 0px 2px 10px #000;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    color: #4caf50;
-  }
-  ul.nav a {
-    color: #4caf50;
-  }
-  ul.nav a:hover {
-    background: rgba(76, 175, 80, 0.15);
-  }
-  .post-title a {
-    color: #4caf50;
-  }
-  a {
-    color: #80cbc4;
-  }
-  a:focus-visible {
-    outline-color: #4caf50;
-  }
-  footer {
-    color: #aaa;
-    border-top-color: #333;
-  }
-  footer .tagline,
-  footer a {
-    color: #4caf50;
-  }
-  pre {
-    background: rgba(255, 255, 255, 0.05);
-  }
-  th, td {
-    border-color: #444;
-  }
-  .highlight {
-    background: #1a1a1a;
-  }
-  .highlight .c { color: #8b949e; font-style: italic }
-  .highlight .err { color: #f85149; background-color: transparent }
-  .highlight .k { color: #ff7b72; font-weight: bold }
-  .highlight .s { color: #a5d6ff }
-  .highlight .na { color: #7ee787 }
-  .highlight .nb { color: #ff7b72 }
-  .highlight .nc { color: #f0883e; font-weight: bold }
-  .highlight .no { color: #79c0ff }
-  .highlight .nf { color: #d2a8ff; font-weight: bold }
-  .highlight .nt { color: #7ee787 }
-  .highlight .nv { color: #79c0ff }
-  .highlight .m { color: #79c0ff }
-  .highlight .o { color: #ff7b72; font-weight: bold }
+  :root:not([data-theme="light"]) .highlight { background: #1a1a1a; }
+  :root:not([data-theme="light"]) .highlight .c  { color: #8b949e; font-style: italic }
+  :root:not([data-theme="light"]) .highlight .err { color: #f85149; background-color: transparent }
+  :root:not([data-theme="light"]) .highlight .k  { color: #ff7b72; font-weight: bold }
+  :root:not([data-theme="light"]) .highlight .s  { color: #a5d6ff }
+  :root:not([data-theme="light"]) .highlight .na { color: #7ee787 }
+  :root:not([data-theme="light"]) .highlight .nb { color: #ff7b72 }
+  :root:not([data-theme="light"]) .highlight .nc { color: #f0883e; font-weight: bold }
+  :root:not([data-theme="light"]) .highlight .no { color: #79c0ff }
+  :root:not([data-theme="light"]) .highlight .nf { color: #d2a8ff; font-weight: bold }
+  :root:not([data-theme="light"]) .highlight .nt { color: #7ee787 }
+  :root:not([data-theme="light"]) .highlight .nv { color: #79c0ff }
+  :root:not([data-theme="light"]) .highlight .m  { color: #79c0ff }
+  :root:not([data-theme="light"]) .highlight .o  { color: #ff7b72; font-weight: bold }
 }
+:root[data-theme="dark"] .highlight { background: #1a1a1a; }
+:root[data-theme="dark"] .highlight .c  { color: #8b949e; font-style: italic }
+:root[data-theme="dark"] .highlight .err { color: #f85149; background-color: transparent }
+:root[data-theme="dark"] .highlight .k  { color: #ff7b72; font-weight: bold }
+:root[data-theme="dark"] .highlight .s  { color: #a5d6ff }
+:root[data-theme="dark"] .highlight .na { color: #7ee787 }
+:root[data-theme="dark"] .highlight .nb { color: #ff7b72 }
+:root[data-theme="dark"] .highlight .nc { color: #f0883e; font-weight: bold }
+:root[data-theme="dark"] .highlight .no { color: #79c0ff }
+:root[data-theme="dark"] .highlight .nf { color: #d2a8ff; font-weight: bold }
+:root[data-theme="dark"] .highlight .nt { color: #7ee787 }
+:root[data-theme="dark"] .highlight .nv { color: #79c0ff }
+:root[data-theme="dark"] .highlight .m  { color: #79c0ff }
+:root[data-theme="dark"] .highlight .o  { color: #ff7b72; font-weight: bold }
