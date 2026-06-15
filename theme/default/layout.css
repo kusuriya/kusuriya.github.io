@@ -16,9 +16,9 @@
   --accent-soft: rgba(14, 116, 144, 0.12);
   --link: #0e7490;
   --link-hover: #b3245f;
-  --glow: rgba(14, 116, 144, 0.55);
+  --glow: rgba(14, 116, 144, 0.28);
   --header-bg: #eceff4;
-  --header-shadow: rgba(14, 116, 144, 0.45);
+  --header-shadow: rgba(14, 116, 144, 0.22);
   --surface: #f5f7fb;
   --surface-border: #c6cedd;
   --surface-shadow: rgba(27, 33, 46, 0.12);
@@ -42,9 +42,9 @@
     --accent-soft: rgba(34, 211, 238, 0.15);
     --link: #5fe6f2;
     --link-hover: #ff4d9d;
-    --glow: rgba(34, 211, 238, 0.95);
+    --glow: rgba(34, 211, 238, 0.48);
     --header-bg: #10141c;
-    --header-shadow: rgba(34, 211, 238, 0.5);
+    --header-shadow: rgba(34, 211, 238, 0.25);
     --surface: #11151d;
     --surface-border: #233044;
     --surface-shadow: rgba(0, 0, 0, 0.6);
@@ -65,9 +65,9 @@
   --accent-soft: rgba(34, 211, 238, 0.15);
   --link: #5fe6f2;
   --link-hover: #ff4d9d;
-  --glow: rgba(34, 211, 238, 0.95);
+  --glow: rgba(34, 211, 238, 0.48);
   --header-bg: #10141c;
-  --header-shadow: rgba(34, 211, 238, 0.5);
+  --header-shadow: rgba(34, 211, 238, 0.25);
   --surface: #11151d;
   --surface-border: #233044;
   --surface-shadow: rgba(0, 0, 0, 0.6);
@@ -284,7 +284,7 @@ hr.pagination {
 .post-title a::before {
   content: "> ";
   color: var(--accent-2);
-  text-shadow: 0 0 12px var(--accent-2);
+  text-shadow: 0 0 6px var(--accent-2);
 }
 .post-title a:hover {
   color: var(--link-hover);
@@ -316,7 +316,7 @@ footer .tagline {
   text-transform: uppercase;
   margin-bottom: 0.5rem;
   color: var(--accent-2);
-  text-shadow: 0 0 12px var(--accent-2);
+  text-shadow: 0 0 6px var(--accent-2);
 }
 footer .footer-links {
   display: block;
