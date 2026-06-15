@@ -83,12 +83,18 @@ a:focus-visible {
 
 /* === Header === */
 div.header {
-  width: 100%;
-  height: 50px;
-  top: 0;
-  left: 0;
   position: sticky;
+  top: 0;
   z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  /* break out of the body's 1rem padding so the bar is flush to the top
+     of the viewport and spans the full width */
+  margin: -1rem -1rem 0;
+  padding: 0.35rem 1rem 0.85rem;
   background-color: var(--header-bg);
   box-shadow: 0 1px 5px var(--header-shadow);
   border-bottom-left-radius: 10px;
@@ -96,15 +102,16 @@ div.header {
 }
 
 div.headerleft {
-  float: left;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
-
-div.headerright {
-  float: right;
-  margin: auto;
-  position: absolute;
-  right: 10px;
-  bottom: 0;
+div.headerleft img {
+  display: block;
+}
+div.headerleft span img {
+  height: 36px;
+  width: auto;
 }
 
 ul.nav {
@@ -268,8 +275,7 @@ img {
     font-size: 1.1em;
   }
   div.header {
-    height: auto;
-    min-height: 50px;
+    padding: 0.35rem 0.75rem 0.75rem;
   }
   .section {
     padding: 1rem;
