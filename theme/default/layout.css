@@ -8,7 +8,7 @@
   --font-mono: ui-monospace, "Cascadia Code", "JetBrains Mono", "Fira Code", "Liberation Mono", Consolas, monospace;
 
   --bg: #e7eaf0;
-  --bg-grid: rgba(14, 116, 144, 0.06);
+  --bg-grid: rgba(14, 116, 144, 0.22);
   --text: #1b212e;
   --heading: #0c6076;
   --accent: #0e7490;
@@ -34,7 +34,7 @@
   :root:not([data-theme="light"]) {
     color-scheme: dark;
     --bg: #0c0e13;
-    --bg-grid: rgba(34, 211, 238, 0.05);
+    --bg-grid: rgba(34, 211, 238, 0.22);
     --text: #c7d2e0;
     --heading: #34e3ea;
     --accent: #22d3ee;
@@ -57,7 +57,7 @@
 :root[data-theme="dark"] {
   color-scheme: dark;
   --bg: #0c0e13;
-  --bg-grid: rgba(34, 211, 238, 0.05);
+  --bg-grid: rgba(34, 211, 238, 0.22);
   --text: #c7d2e0;
   --heading: #34e3ea;
   --accent: #22d3ee;
@@ -78,19 +78,79 @@
 }
 
 /* === Base === */
+html {
+  background-color: var(--bg);
+}
+
 body {
   padding: 1rem;
   margin: auto;
   font: 14px/1.65 var(--font-sans);
   color: var(--text);
   font-weight: 400;
-  background-color: var(--bg);
-  /* faint dystopian grid, only visible in the gutters around the panels */
+  background: transparent;
+}
+
+/* === Perspective grid =================================================
+   Two fixed planes — a floor and a mirrored ceiling — tilted in 3D so
+   they recede to a horizon at the vertical centre and flow off into the
+   distance. Sit behind the (opaque) content panels, so text is never
+   laid over the moving grid. */
+html::before,
+html::after {
+  content: "";
+  position: fixed;
+  left: 50%;
+  width: 300vw;
+  height: 62vh;
+  margin-left: -150vw;
+  z-index: -1;
+  pointer-events: none;
   background-image:
-    linear-gradient(var(--bg-grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
-  background-size: 32px 32px;
-  background-attachment: fixed;
+    repeating-linear-gradient(to right, var(--bg-grid) 0 2px, transparent 2px 7vmin),
+    repeating-linear-gradient(to bottom, var(--bg-grid) 0 2px, transparent 2px 7vmin);
+  background-position: 50% 0;
+}
+/* floor: lower half, receding up to the horizon */
+html::before {
+  top: 50%;
+  transform-origin: 50% 0;
+  transform: perspective(45vh) rotateX(74deg);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 28%);
+          mask-image: linear-gradient(to bottom, transparent 0%, #000 28%);
+  animation: grid-flow-down 6s linear infinite;
+}
+/* ceiling: upper half, mirror of the floor */
+html::after {
+  bottom: 50%;
+  transform-origin: 50% 100%;
+  transform: perspective(45vh) rotateX(-74deg);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 28%);
+          mask-image: linear-gradient(to top, transparent 0%, #000 28%);
+  animation: grid-flow-up 6s linear infinite;
+}
+/* glowing horizon line where the two planes meet */
+body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--accent);
+  box-shadow: 0 0 16px 2px var(--header-shadow);
+  opacity: 0.5;
+}
+
+@keyframes grid-flow-down {
+  from { background-position: 50% 0; }
+  to   { background-position: 50% 7vmin; }
+}
+@keyframes grid-flow-up {
+  from { background-position: 50% 0; }
+  to   { background-position: 50% -7vmin; }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -411,6 +471,7 @@ img {
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
+    animation: none !important;
   }
 }
 
