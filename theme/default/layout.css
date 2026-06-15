@@ -139,53 +139,56 @@ body::after {
 }
 
 /* === Mountains at the horizon =============================================
-   Layered mountain silhouettes built from overlapping angled gradients,
-   sitting just below the perspective-grid horizon. Three layers (far, mid,
-   near) with staggered repeat lengths create parallax-like depth. Fade the
-   top edge so peaks blend into the sky. */
+   Two layers of mountain silhouettes sitting on the perspective-grid
+   horizon. Each uses clip-path: polygon() to carve actual jagged peaks.
+   The far range is fainter and sits behind the near range for depth.
+   Both fade at the top via mask-image so they blend into the sky. */
+
+/* far range — lower peaks, further back, lighter */
+main::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 50%;
+  height: 100px;
+  z-index: -2;
+  pointer-events: none;
+  background: var(--mountain-far);
+  clip-path: polygon(
+    0% 100%,
+    4% 72%,   8% 90%,  12% 60%,  16% 82%,  20% 68%,
+    24% 50%,  28% 78%,  32% 62%,  36% 85%,  40% 55%,
+    44% 72%,  48% 58%,  52% 80%,  56% 64%,  60% 75%,
+    64% 48%,  68% 68%,  72% 55%,  76% 78%,  80% 60%,
+    84% 72%,  88% 52%,  92% 68%,  96% 58%, 100% 80%,
+    100% 100%, 0% 100%
+  );
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 55%, transparent 100%);
+          mask-image: linear-gradient(to top, #000 0%, #000 55%, transparent 100%);
+}
+
+/* near range — taller peaks, darker, in front of the far range */
 body::before {
   content: "";
   position: fixed;
   left: 0;
   right: 0;
   bottom: 50%;
-  height: 130px;
+  height: 120px;
   z-index: -1;
   pointer-events: none;
-  background:
-    /* far range — low, gentle peaks, faint */
-    repeating-linear-gradient(
-      172deg,
-      transparent,
-      transparent 48px,
-      var(--mountain-far) 48px,
-      var(--mountain-far) 50px
-    ),
-    /* mid range — sharper, slightly taller */
-    repeating-linear-gradient(
-      167deg,
-      transparent,
-      transparent 82px,
-      var(--mountain-mid) 82px,
-      var(--mountain-mid) 84px
-    ),
-    /* near range — tallest, darkest, most prominent */
-    repeating-linear-gradient(
-      171deg,
-      transparent,
-      transparent 64px,
-      var(--mountain-near) 64px,
-      var(--mountain-near) 67px
-    );
-  background-size:
-    520px 100%,
-    340px 100%,
-    210px 100%;
-  background-position:
+  background: var(--mountain-near);
+  clip-path: polygon(
     0% 100%,
-    22px 100%,
-    85px 100%;
-  background-repeat: repeat-x;
+    2% 78%,   6% 60%,  10% 85%,  14% 48%,  18% 70%,
+    22% 55%,  26% 80%,  30% 42%,  34% 68%,  38% 52%,
+    42% 75%,  46% 45%,  50% 62%,  54% 50%,  58% 78%,
+    62% 38%,  66% 58%,  70% 46%,  74% 72%,  78% 52%,
+    82% 68%,  86% 42%,  90% 60%,  94% 50%,  98% 72%,
+    100% 58%,
+    100% 100%, 0% 100%
+  );
   -webkit-mask-image: linear-gradient(to top, #000 0%, #000 60%, transparent 100%);
           mask-image: linear-gradient(to top, #000 0%, #000 60%, transparent 100%);
 }
