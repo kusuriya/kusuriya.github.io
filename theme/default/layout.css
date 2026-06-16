@@ -472,6 +472,16 @@ code {
   word-break: break-word;
 }
 
+.tag {
+  font-size: 0.75em;
+  padding: 1px 6px;
+  border-radius: 3px;
+  border: 1px solid var(--rule);
+  background: var(--code-bg);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 table {
   display: block;
   overflow-x: auto;
