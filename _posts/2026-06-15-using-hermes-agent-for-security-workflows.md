@@ -185,6 +185,7 @@ The agents are not coming. They are already here. The question is whether you ar
 24. <a id="src-24"></a>VulnCheck — "Does ENISA EUVD live up to all the hype?" (May 2025). [https://www.vulncheck.com/blog/enisa-euvd](https://www.vulncheck.com/blog/enisa-euvd)
 25. <a id="src-25"></a>Chen et al. — "AgentPoison: Red-teaming LLM Agents via Poisoning Memory or Knowledge Bases" (NeurIPS 2024). [https://arxiv.org/abs/2407.12784](https://arxiv.org/abs/2407.12784)
 26. <a id="src-26"></a>Cloud Security Alliance — *Autonomous but Not Controlled: AI Agent Incidents Now Common in Enterprises* (Apr 2026). [https://cloudsecurityalliance.org/artifacts/autonomous-but-not-controlled-ai-agent-incidents-now-common-in-enterprises](https://cloudsecurityalliance.org/artifacts/autonomous-but-not-controlled-ai-agent-incidents-now-common-in-enterprises)
+
 ---
 
 *Last updated: 2026-06-16. Metrics and citations reflect sources retrieved through this date, including ENISA EUVD coverage. For the latest Hermes Agent configuration reference, see https://hermes-agent.nousresearch.com/docs/.*
