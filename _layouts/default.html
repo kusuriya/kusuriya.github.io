@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if page.title %}{{ page.title }} &middot; {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
     <meta name="author" content="Jason Barbier" />
-    <link rel="stylesheet" href="{{"/theme/default/layout.css?v=11" | relative_url}}" />
-    <link rel="stylesheet" href="{{"/theme/default/syntaxhighlight.css" | relative_url}}" />
+    <link rel="stylesheet" href="{{"/theme/default/layout.css?v=12" | relative_url}}" />
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{"/blog/feed.xml" | relative_url}}" />
     <link rel="icon" type="image/png" href="/img/favicon.png" sizes="48x48" />
     {% seo %}
   </head>
   <body>
-
     <div class="neon-sun" aria-hidden="true"></div>
     <a class="skip-link" href="#main">Skip to content</a>
 
@@ -51,5 +49,33 @@
       </div>
     </footer>
 
+    <script>
+      // Active nav state: underline the link matching the current page
+      (function () {
+        var path = window.location.pathname.replace(/\/$/, '') || '/';
+        var links = document.querySelectorAll('.nav a');
+        for (var i = 0; i < links.length; i++) {
+          var href = links[i].getAttribute('href').replace(/\/$/, '') || '/';
+          if (path === href || (href !== '/' && path.indexOf(href) === 0)) {
+            links[i].classList.add('active');
+            break;
+          }
+        }
+      })();
+
+      // Lazy-load content images for better page weight
+      (function () {
+        document.querySelectorAll('.section img:not([loading])').forEach(function (img) {
+          img.setAttribute('loading', 'lazy');
+        });
+      })();
+
+      // Pause grid animation when tab is hidden to save battery
+      (function () {
+        document.addEventListener('visibilitychange', function () {
+          document.body.classList.toggle('paused', document.hidden);
+        });
+      })();
+    </script>
   </body>
 </html>
