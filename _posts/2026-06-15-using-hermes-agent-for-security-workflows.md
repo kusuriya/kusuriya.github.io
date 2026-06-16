@@ -167,11 +167,11 @@ The agents are not coming. They are already here. The question is whether you ar
 6. <a id="src-6"></a>Hermes Agent Documentation -- [https://hermes-agent.nousresearch.com/docs/](https://hermes-agent.nousresearch.com/docs/)
 7. <a id="src-7"></a>NousResearch/hermes-agent GitHub -- [https://github.com/nousresearch/hermes-agent](https://github.com/nousresearch/hermes-agent)
 8. <a id="src-8"></a>OWASP Gen AI Top 10 (2025). [https://genai.owasp.org/llm-top-10/](https://genai.owasp.org/llm-top-10/)
-9. <a id="src-9"></a>arXiv:2509.10540 -- EchoLeak / CVE-2025-32711 (2025).
-10. <a id="src-10"></a>arXiv:2601.20727 -- Ojewale et al., Audit Trail Requirements (2026).
-11. <a id="src-11"></a>arXiv:2602.19555 -- Jiang et al., Agentic AI Attack Surface (2026).
-12. <a id="src-12"></a>arXiv:2403.02817 -- Nassi et al., Morris II Worm (2024).
-13. <a id="src-13"></a>ACM DOI:10.1145/3759260 -- Hagen et al., Automation Bias in SOCs (2025).
+9. <a id="src-9"></a>[arXiv:2509.10540](https://arxiv.org/abs/2509.10540) -- EchoLeak / CVE-2025-32711 (2025).
+10. <a id="src-10"></a>[arXiv:2601.20727](https://arxiv.org/abs/2601.20727) -- Ojewale et al., Audit Trail Requirements (2026).
+11. <a id="src-11"></a>[arXiv:2602.19555](https://arxiv.org/abs/2602.19555) -- Jiang et al., Agentic AI Attack Surface (2026).
+12. <a id="src-12"></a>[arXiv:2403.02817](https://arxiv.org/abs/2403.02817) -- Nassi et al., Morris II Worm (2024).
+13. <a id="src-13"></a>[ACM DOI:10.1145/3759260](https://doi.org/10.1145/3759260) -- Hagen et al., Automation Bias in SOCs (2025).
 14. <a id="src-14"></a>Unit 42 -- "AI Agent Prompt Injection Evasion Techniques" (Mar 2026). [https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/](https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
 15. <a id="src-15"></a>Secure.com -- "AI Didn't Just Find More Bugs, It Broke the System for Tracking Them" (2026). [https://www.secure.com/blog/cybersecurity/ai-didnt-just-find-more-bugs-it-broke-the-system-for-tracking-them](https://www.secure.com/blog/cybersecurity/ai-didnt-just-find-more-bugs-it-broke-the-system-for-tracking-them)
 16. <a id="src-16"></a>GreyNoise Labs -- "The PoC Pollution Problem" (Jul 2025). [https://www.labs.greynoise.io/grimoire/2025-07-30-ai-poc/](https://www.labs.greynoise.io/grimoire/2025-07-30-ai-poc/)
@@ -179,7 +179,7 @@ The agents are not coming. They are already here. The question is whether you ar
 18. <a id="src-18"></a>RedMonk -- "AI Slop & the Vulnerability Treadmill" (May 2026). [https://redmonk.com/kholterhoff/2026/05/05/ai-slop-vulnerability-treadmill/](https://redmonk.com/kholterhoff/2026/05/05/ai-slop-vulnerability-treadmill/)
 19. <a id="src-19"></a>CyberScoop -- "AI Might Cut False Positives, But It Won't Stop the Slop" (2026). [https://cyberscoop.com/ai-vulnerability-reporting-bug-bounty-noise/](https://cyberscoop.com/ai-vulnerability-reporting-bug-bounty-noise/)
 20. <a id="src-20"></a>Tines -- "Voice of the SOC Analyst" (2022). [https://www.tines.com/reports/voice-of-the-soc-analyst/](https://www.tines.com/reports/voice-of-the-soc-analyst/)
-21. <a id="src-21"></a>arXiv:2404.08144 -- GPT-class CVE exploitation success rates (2025).
+21. <a id="src-21"></a>[arXiv:2404.08144](https://arxiv.org/abs/2404.08144) -- GPT-class CVE exploitation success rates (2025).
 22. <a id="src-22"></a>PoisonedRAG -- Zou et al., "PoisonedRAG: Knowledge Corruption Attacks to Retrieval-Augmented Generation" (USENIX Security 2025). [https://arxiv.org/abs/2402.07867](https://arxiv.org/abs/2402.07867)
 23. <a id="src-23"></a>ENISA -- "European Vulnerability Database (EUVD)" (live since May 13, 2025). [https://euvd.enisa.europa.eu/](https://euvd.enisa.europa.eu/)
 24. <a id="src-24"></a>VulnCheck -- "Does ENISA EUVD live up to all the hype?" (May 2025). [https://www.vulncheck.com/blog/enisa-euvd](https://www.vulncheck.com/blog/enisa-euvd)
