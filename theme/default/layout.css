@@ -136,8 +136,6 @@ html::after {
     100% 100%, 100% 86%, 100% 86%, 100% 100%,
     100% 100%, 0% 100%
   );
-  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 60%, transparent 100%);
-          mask-image: linear-gradient(to top, #000 0%, #000 60%, transparent 100%);
 }
 
 /* near skyline — taller buildings, darker, foreground */
@@ -184,8 +182,6 @@ body::before {
     100% 100%, 100% 62%, 100% 62%, 100% 100%,
     100% 100%, 0% 100%
   );
-  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 65%, transparent 100%);
-          mask-image: linear-gradient(to top, #000 0%, #000 65%, transparent 100%);
 }
 
 /* === Neon sun ==============================================================
@@ -195,13 +191,14 @@ body::before {
 .neon-sun {
   position: fixed;
   right: 10%;
-  bottom: calc(50% - 20px);
+  bottom: 50%;
   width: 240px;
   height: 240px;
   border-radius: 50%;
   background: var(--accent-2);
   z-index: -2;
   pointer-events: none;
+  clip-path: inset(0 0 12% 0);
   filter:
     drop-shadow(0 0 40px var(--sun-glow))
     drop-shadow(0 0 100px var(--accent-2))
