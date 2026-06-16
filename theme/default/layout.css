@@ -28,8 +28,8 @@
   --rule: #1a2535;
   --code-bg: rgba(34, 211, 238, 0.04);
 
-  --skyline-far: rgba(34, 211, 238, 0.08);
-  --skyline-near: rgba(34, 211, 238, 0.16);
+  --skyline-far: #132233;
+  --skyline-near: #060d15;
   --sun-glow: rgba(255, 77, 157, 0.35);
   --sun-inner: rgba(255, 77, 157, 0.20);
 }
