@@ -159,42 +159,32 @@ The agents are not coming. They are already here. The question is whether you ar
 
 ## Sources
 
-<a id="src-1"></a>1. ISC2 — "Cybersecurity Workforce Study 2024" (2024). https://www.isc2.org/Research/Workforce-Study
-<a id="src-2"></a>2. Tilbury, A. & Flowerday, S. — "The Effects of Alert Fatigue on SOC Analysts" (MDPI Computers 2024). https://www.mdpi.com/2073-431X/13/7/165
-<a id="src-3"></a>3. Checkmarx — "2025 Trends on AI Security: How AppSec Must Evolve with the AI-Shifted SDLC" (Sep 2025). https://checkmarx.com/learn/ai-security/2025-trends-on-ai-security-how-appsec-must-evolve-with-the-ai-shifted-sdlc/
-<a id="src-4"></a>4. Cloud Security Alliance — "Vibe Coding's Security Debt: The AI-Generated CVE Surge" (Apr 2026). https://labs.cloudsecurityalliance.org/research/csa-research-note-ai-generated-code-vulnerability-surge-2026/
-<a id="src-5"></a>5. Digital Applied — "OpenClaw vs Hermes vs Codex CLI: 2026 Coding Agent Benchmark" (2026). https://www.digitalapplied.com/blog/openclaw-hermes-codex-cli-coding-agent-benchmark-2026
-<a id="src-6"></a>6. Hermes Agent Documentation — https://hermes-agent.nousresearch.com/docs/
-<a id="src-7"></a>7. NousResearch/hermes-agent GitHub — https://github.com/nousresearch/hermes-agent
-<a id="src-8"></a>8. OWASP Gen AI Top 10 (2025). https://genai.owasp.org/llm-top-10/
-<a id="src-9"></a>9. arXiv:2509.10540 — EchoLeak / CVE-2025-32711 (2025).
-<a id="src-10"></a>10. arXiv:2601.20727 — Ojewale et al., Audit Trail Requirements (2026).
-<a id="src-11"></a>11. arXiv:2602.19555 — Jiang et al., Agentic AI Attack Surface (2026).
-<a id="src-12"></a>12. arXiv:2403.02817 — Nassi et al., Morris II Worm (2024).
-<a id="src-13"></a>13. ACM DOI:10.1145/3759260 — Hagen et al., Automation Bias in SOCs (2025).
-<a id="src-14"></a>14. Unit 42 — "AI Agent Prompt Injection Evasion Techniques" (Mar 2026). https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/
-<a id="src-15"></a>15. Secure.com — "AI Didn't Just Find More Bugs, It Broke the System for Tracking Them" (2026). https://www.secure.com/blog/cybersecurity/ai-didnt-just-find-more-bugs-it-broke-the-system-for-tracking-them
-<a id="src-16"></a>16. GreyNoise Labs — "The PoC Pollution Problem" (Jul 2025). https://www.labs.greynoise.io/grimoire/2025-07-30-ai-poc/
-<a id="src-17"></a>17. Drata — "Building Smarter AI Security Research" (Apr 2026). https://drata.com/blog/building-smarter-ai-security-research
-<a id="src-18"></a>18. RedMonk — "AI Slop & the Vulnerability Treadmill" (May 2026). https://redmonk.com/kholterhoff/2026/05/05/ai-slop-vulnerability-treadmill/
-<a id="src-19"></a>19. CyberScoop — "AI Might Cut False Positives, But It Won't Stop the Slop" (2026). https://cyberscoop.com/ai-vulnerability-reporting-bug-bounty-noise/
-<a id="src-20"></a>20. Tines — "Voice of the SOC Analyst" (2022). https://www.tines.com/reports/voice-of-the-soc-analyst/
-<a id="src-21"></a>21. arXiv:2404.08144 — GPT-class CVE exploitation success rates (2025).
-<a id="src-22"></a>22. PoisonedRAG — Zou et al., "PoisonedRAG: Knowledge Corruption Attacks to Retrieval-Augmented Generation" (USENIX Security 2025). https://arxiv.org/abs/2402.07867
-<a id="src-23"></a>23. ENISA — "European Vulnerability Database (EUVD)" (live since May 13, 2025). https://euvd.enisa.europa.eu/
-<a id="src-24"></a>24. VulnCheck — "Does ENISA EUVD live up to all the hype?" (May 2025). https://www.vulncheck.com/blog/enisa-euvd
-<a id="src-25"></a>25. Chen et al. — "AgentPoison: Red-teaming LLM Agents via Poisoning Memory or Knowledge Bases" (NeurIPS 2024). https://arxiv.org/abs/2407.12784
-<a id="src-26"></a>26. Cloud Security Alliance — "Autonomous but Not Controlled: AI Agent Incidents Now Common in Enterprises" (Apr 2026). https://cloudsecurityalliance.org/artifacts/autonomous-but-not-controlled-ai-agent-incidents-now-common-in-enterprises
-
+1. <a id="src-1"></a>ISC2 — "Cybersecurity Workforce Study 2024" (2024). [https://www.isc2.org/Research/Workforce-Study](https://www.isc2.org/Research/Workforce-Study)
+2. <a id="src-2"></a>Tilbury, A. & Flowerday, S. — "The Effects of Alert Fatigue on SOC Analysts" (MDPI Computers 2024). [https://www.mdpi.com/2073-431X/13/7/165](https://www.mdpi.com/2073-431X/13/7/165)
+3. <a id="src-3"></a>Checkmarx — "2025 Trends on AI Security: How AppSec Must Evolve with the AI-Shifted SDLC" (Sep 2025). [https://checkmarx.com/learn/ai-security/2025-trends-on-ai-security-how-appsec-must-evolve-with-the-ai-shifted-sdlc/](https://checkmarx.com/learn/ai-security/2025-trends-on-ai-security-how-appsec-must-evolve-with-the-ai-shifted-sdlc/)
+4. <a id="src-4"></a>Cloud Security Alliance — "Vibe Coding's Security Debt: The AI-Generated CVE Surge" (Apr 2026). [https://labs.cloudsecurityalliance.org/research/csa-research-note-ai-generated-code-vulnerability-surge-2026/](https://labs.cloudsecurityalliance.org/research/csa-research-note-ai-generated-code-vulnerability-surge-2026/)
+5. <a id="src-5"></a>Digital Applied — "OpenClaw vs Hermes vs Codex CLI: 2026 Coding Agent Benchmark" (2026). [https://www.digitalapplied.com/blog/openclaw-hermes-codex-cli-coding-agent-benchmark-2026](https://www.digitalapplied.com/blog/openclaw-hermes-codex-cli-coding-agent-benchmark-2026)
+6. <a id="src-6"></a>Hermes Agent Documentation — [https://hermes-agent.nousresearch.com/docs/](https://hermes-agent.nousresearch.com/docs/)
+7. <a id="src-7"></a>NousResearch/hermes-agent GitHub — [https://github.com/nousresearch/hermes-agent](https://github.com/nousresearch/hermes-agent)
+8. <a id="src-8"></a>OWASP Gen AI Top 10 (2025). [https://genai.owasp.org/llm-top-10/](https://genai.owasp.org/llm-top-10/)
+9. <a id="src-9"></a>arXiv:2509.10540 — EchoLeak / CVE-2025-32711 (2025).
+10. <a id="src-10"></a>arXiv:2601.20727 — Ojewale et al., Audit Trail Requirements (2026).
+11. <a id="src-11"></a>arXiv:2602.19555 — Jiang et al., Agentic AI Attack Surface (2026).
+12. <a id="src-12"></a>arXiv:2403.02817 — Nassi et al., Morris II Worm (2024).
+13. <a id="src-13"></a>ACM DOI:10.1145/3759260 — Hagen et al., Automation Bias in SOCs (2025).
+14. <a id="src-14"></a>Unit 42 — "AI Agent Prompt Injection Evasion Techniques" (Mar 2026). [https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/](https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
+15. <a id="src-15"></a>Secure.com — "AI Didn't Just Find More Bugs, It Broke the System for Tracking Them" (2026). [https://www.secure.com/blog/cybersecurity/ai-didnt-just-find-more-bugs-it-broke-the-system-for-tracking-them](https://www.secure.com/blog/cybersecurity/ai-didnt-just-find-more-bugs-it-broke-the-system-for-tracking-them)
+16. <a id="src-16"></a>GreyNoise Labs — "The PoC Pollution Problem" (Jul 2025). [https://www.labs.greynoise.io/grimoire/2025-07-30-ai-poc/](https://www.labs.greynoise.io/grimoire/2025-07-30-ai-poc/)
+17. <a id="src-17"></a>Drata — "Building Smarter AI Security Research" (Apr 2026). [https://drata.com/blog/building-smarter-ai-security-research](https://drata.com/blog/building-smarter-ai-security-research)
+18. <a id="src-18"></a>RedMonk — "AI Slop & the Vulnerability Treadmill" (May 2026). [https://redmonk.com/kholterhoff/2026/05/05/ai-slop-vulnerability-treadmill/](https://redmonk.com/kholterhoff/2026/05/05/ai-slop-vulnerability-treadmill/)
+19. <a id="src-19"></a>CyberScoop — "AI Might Cut False Positives, But It Won't Stop the Slop" (2026). [https://cyberscoop.com/ai-vulnerability-reporting-bug-bounty-noise/](https://cyberscoop.com/ai-vulnerability-reporting-bug-bounty-noise/)
+20. <a id="src-20"></a>Tines — "Voice of the SOC Analyst" (2022). [https://www.tines.com/reports/voice-of-the-soc-analyst/](https://www.tines.com/reports/voice-of-the-soc-analyst/)
+21. <a id="src-21"></a>arXiv:2404.08144 — GPT-class CVE exploitation success rates (2025).
+22. <a id="src-22"></a>PoisonedRAG — Zou et al., "PoisonedRAG: Knowledge Corruption Attacks to Retrieval-Augmented Generation" (USENIX Security 2025). [https://arxiv.org/abs/2402.07867](https://arxiv.org/abs/2402.07867)
+23. <a id="src-23"></a>ENISA — "European Vulnerability Database (EUVD)" (live since May 13, 2025). [https://euvd.enisa.europa.eu/](https://euvd.enisa.europa.eu/)
+24. <a id="src-24"></a>VulnCheck — "Does ENISA EUVD live up to all the hype?" (May 2025). [https://www.vulncheck.com/blog/enisa-euvd](https://www.vulncheck.com/blog/enisa-euvd)
+25. <a id="src-25"></a>Chen et al. — "AgentPoison: Red-teaming LLM Agents via Poisoning Memory or Knowledge Bases" (NeurIPS 2024). [https://arxiv.org/abs/2407.12784](https://arxiv.org/abs/2407.12784)
+26. <a id="src-26"></a>Cloud Security Alliance — "Autonomous but Not Controlled: AI Agent Incidents Now Common in Enterprises" (Apr 2026). [https://cloudsecurityalliance.org/artifacts/autonomous-but-not-controlled-ai-agent-incidents-now-common-in-enterprises](https://cloudsecurityalliance.org/artifacts/autonomous-but-not-controlled-ai-agent-incidents-now-common-in-enterprises)
 ---
 
 *Last updated: 2026-06-16. Metrics and citations reflect sources retrieved through this date, including ENISA EUVD coverage. For the latest Hermes Agent configuration reference, see https://hermes-agent.nousresearch.com/docs/.*
-
----
-
-## Related Research
-
-- [[hermes-agent-security-blog/2026-06-15_summary]] — Original skeleton draft
-- [[hermes-agent-security-blog/hermes-agent/2026-06-15_summary]] — Hermes Agent architecture & config brief
-- [[hermes-agent-security-blog/ai-agent-security-metrics/2026-06-15_summary]] — Metrics with confidence ratings
-- [[hermes-agent-security-blog/signal-vs-noise-bug-bounty/2026-06-15_summary]] — Bug bounty collapse, AI slop, and ethical dimensions
