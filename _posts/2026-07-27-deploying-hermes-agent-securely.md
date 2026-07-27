@@ -15,6 +15,10 @@ tags:
 
 # Deploying Hermes Agent securely
 
+Agents can be dangerous but with a bit of care they can be deployed safely and securely. Lets talk about how we could get Hermes to be deployed in a safe and sane fashion
+
+<!--more-->
+
 > **Reviewed against Hermes Agent v0.19.0 and the official documentation on July 27, 2026.** Hermes changes quickly. Before applying an option from this guide, compare it with the current [configuration reference](https://hermes-agent.nousresearch.com/docs/user-guide/configuration), [security guide](https://hermes-agent.nousresearch.com/docs/user-guide/security), and the `--help` output from your installed version.
 
 Hermes Agent can read files, run shell commands, operate browsers, call external services, remember information across sessions, accept messages from chat platforms, and schedule unattended work. That is why it is useful. It is also why deploying it like an ordinary chatbot is a mistake.
